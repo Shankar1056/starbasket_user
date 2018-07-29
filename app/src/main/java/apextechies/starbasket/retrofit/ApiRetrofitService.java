@@ -1,11 +1,13 @@
 package apextechies.starbasket.retrofit;
 
 
+import apextechies.starbasket.model.AddressModel;
 import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.ProductModel;
+import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
 import retrofit2.Call;
@@ -53,5 +55,20 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.DELETECARTITEM)
     @FormUrlEncoded
     Call<CommonModel> deleteCart(@Field("cart_id") String user_id);
+
+    @GET(ApiUrl.GETSTATE)
+    Call<StateModel> stateList();
+
+    @POST(ApiUrl.GETADDRESS)
+    @FormUrlEncoded
+    Call<AddressModel> allAddress(@Field("user_id") String user_id);
+
+    @POST(ApiUrl.ADDUPDATEADDRESS)
+    @FormUrlEncoded
+    Call<AddressModel> addUpdateAddress(@Field("user_id") String user_id, @Field("address_id") String address_id, @Field("state_id") String state_id, @Field("pincode") String pincode, @Field("address1") String address1, @Field("address2") String address2, @Field("name") String name, @Field("city") String city, @Field("landmark") String landmark);
+
+    @POST(ApiUrl.DELETEADDRESS)
+    @FormUrlEncoded
+    Call<AddressModel> deleteAddress(@Field("address_id") String address_id);
 
 }

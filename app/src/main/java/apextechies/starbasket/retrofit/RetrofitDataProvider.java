@@ -11,11 +11,13 @@ import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
 
 import apextechies.starbasket.R;
+import apextechies.starbasket.model.AddressModel;
 import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.ProductModel;
+import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
 import okhttp3.OkHttpClient;
@@ -290,6 +292,130 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void stateList(final DownlodableCallback<StateModel> callback) {
+        createRetrofitService().stateList().enqueue(
+                new Callback<StateModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<StateModel> call, @NonNull final Response<StateModel> response) {
+
+                        if (response.isSuccessful()) {
+                            StateModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<StateModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void allAddress(String user_id, final DownlodableCallback<AddressModel> callback) {
+        createRetrofitService().allAddress(user_id).enqueue(
+                new Callback<AddressModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<AddressModel> call, @NonNull final Response<AddressModel> response) {
+
+                        if (response.isSuccessful()) {
+                            AddressModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<AddressModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void addUpdateAddress(String user_id, String address_id, String state_id, String pincode, String address1, String address2, String name, String city, String landmark, final DownlodableCallback<AddressModel> callback) {
+        createRetrofitService().addUpdateAddress(user_id, address_id, state_id, pincode, address1, address2, name, city, landmark).enqueue(
+                new Callback<AddressModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<AddressModel> call, @NonNull final Response<AddressModel> response) {
+
+                        if (response.isSuccessful()) {
+                            AddressModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<AddressModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void deleteAddress(String address_id, final DownlodableCallback<AddressModel> callback) {
+        createRetrofitService().deleteAddress(address_id).enqueue(
+                new Callback<AddressModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<AddressModel> call, @NonNull final Response<AddressModel> response) {
+
+                        if (response.isSuccessful()) {
+                            AddressModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<AddressModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

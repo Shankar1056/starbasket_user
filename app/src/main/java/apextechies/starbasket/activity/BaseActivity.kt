@@ -76,7 +76,9 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener {
             }
         }, 5000)
 
-        item.actionView.setOnClickListener(this)
+        item.actionView.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        })
 
         return super.onCreateOptionsMenu(menu)
     }

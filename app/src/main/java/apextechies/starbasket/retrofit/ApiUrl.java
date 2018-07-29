@@ -14,4 +14,8 @@ public class ApiUrl {
     public static final String GETCARTITEM = "get_cart_item";
     public static final String ADDUPDATECART = "add_update_cart";
     public static final String DELETECARTITEM = "delete_cart_item";
+    public static final String GETSTATE = "get_state";
+    public static final String GETADDRESS = "get_address";
+    public static final String ADDUPDATEADDRESS = "add_update_address";
+    public static final String DELETEADDRESS = "delete_address";
 }

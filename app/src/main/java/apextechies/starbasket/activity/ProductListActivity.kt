@@ -35,7 +35,8 @@ class ProductListActivity: AppCompatActivity(), CategoryFragment.OnProductListen
         mAdapter = ViewPagerAdapter(supportFragmentManager)
 
         vp_list.adapter =mAdapter
-        tl_list.setupWithViewPager(vp_list)
+        tl_list.setupWithViewPager(
+                vp_list)
 
         getSubSubCat(group.id)
     }
