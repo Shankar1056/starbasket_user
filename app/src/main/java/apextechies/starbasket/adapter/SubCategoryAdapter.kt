@@ -63,7 +63,9 @@ import java.util.ArrayList
                 imageIV = itemView.findViewById<View>(R.id.iv_image) as ImageView
                 titleTV = itemView.findViewById<View>(R.id.tv_title) as TextView
 
-                itemView.setOnClickListener { mListener.onItemClick(mItemList[adapterPosition]) }
+                itemView.setOnClickListener {
+                    mListener.onItemClick(mItemList[adapterPosition])
+                }
             }
         }
 

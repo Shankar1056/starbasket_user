@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import apextechies.starbasket.R
+import apextechies.starbasket.R.drawable.cart
 import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.adapter.CombinationAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
@@ -24,6 +25,7 @@ import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.ApiUrl
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import com.rollbar.android.Rollbar.init
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
@@ -32,10 +34,12 @@ import kotlinx.android.synthetic.main.dialog_combination.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.json.JSONException
 import org.json.JSONObject
+import java.lang.Exception
 
 class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickListener, OnCartListener, View.OnClickListener  {
 
     private var product: ProductDataModel? = null
+    private var cartlist: CartDataModel? = null
     private var mAdapter: ViewPagerAdapter? = null
     private var dialog: Dialog? = null
     private var mCartAdapter: CartAdapter? = null
@@ -48,6 +52,9 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         retrofitDataProvider = RetrofitDataProvider(this)
         product = getIntent().getParcelableExtra<ProductDataModel>("list")
+        if (intent.getStringExtra("hashcart").equals("yes")) {
+            cartlist = getIntent().getParcelableExtra<CartDataModel>("cartlist")
+        }
         supportActionBar!!.setTitle(product!!.name)
 
         if (!product!!.unitdetails!![0].discount!!.isEmpty()) {
@@ -98,14 +105,11 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     override fun onStart() {
         super.onStart()
 
-        var productDataModel= QuantityModel()
         retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 for (i in 0 until result!!.data!!.size) {
                     mCartAdapter!!.addItem(result.data!![i])
-                    if (productDataModel != null) {
-                        productDataModel.setQty(result.data[i].quantity!!)
-                    }
+
 
                 }
 
@@ -134,13 +138,24 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
             R.id.tv_combination -> showCombinationDialog()
 
             R.id.tv_dec_quantity -> {
-                product!!.quantity = (Integer.parseInt(product!!.quantity) - 1).toString()
-                setQuantity(true)
+                if (tv_quantity.text.toString().trim().equals("") || tv_quantity.text.toString().trim().equals("0")){}
+                else {
+                    cartlist!!.quantity = (Integer.parseInt(cartlist!!.quantity) - 1).toString()
+                    setQuantity(true)
+                }
             }
 
             R.id.tv_inc_quantity -> {
-                product!!.quantity = (Integer.parseInt(product!!.quantity) + 1).toString()
-                setQuantity(true)
+                if (tv_quantity.text.toString().trim().equals("") || tv_quantity.text.toString().trim().equals("0"))
+                {
+                    cartlist!!.quantity = "1"
+                    setQuantity(true)
+                }else{
+                    cartlist!!.quantity = (Integer.parseInt(tv_quantity.text.toString()) + 1).toString()
+                    setQuantity(true)
+                }
+
+
             }
 
 
@@ -158,18 +173,22 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     }
 
     private fun setQuantity(updateToServer: Boolean) {
-        tv_quantity.text = product!!.quantity
+        if (cartlist!=null) {
+            try {
+                tv_quantity.text = cartlist!!.quantity
+                if (Integer.parseInt(cartlist!!.quantity) < 1) {
+                    tv_dec_quantity.setVisibility(View.INVISIBLE)
+                } else {
+                    tv_dec_quantity.setVisibility(View.VISIBLE)
+                }
+                tv_dec_quantity.setVisibility(View.VISIBLE)
+            }catch (e: Exception){
 
-        if (Integer.parseInt(product!!.quantity) < 1) {
-            tv_dec_quantity.setVisibility(View.INVISIBLE)
-            tv_dec_quantity.setVisibility(View.INVISIBLE)
-        } else {
-            tv_dec_quantity.setVisibility(View.VISIBLE)
-            tv_dec_quantity.setVisibility(View.VISIBLE)
+            }
         }
 
         if (updateToServer) {
-            retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, product!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].unit, object : DownlodableCallback<CartModel> {
+            retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, cartlist!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
                 override fun onSuccess(result: CartModel?) {
 
                     for (i in 0 until result!!.data!!.size) {
@@ -270,7 +289,7 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     }
 
    override fun onCartUpdate(item: CartDataModel) {
-       retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, product!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].unit, object : DownlodableCallback<CartModel> {
+       retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, cartlist!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
            override fun onSuccess(result: CartModel?) {
 
                for (i in 0 until result!!.data!!.size) {

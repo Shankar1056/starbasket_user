@@ -10,7 +10,7 @@ val status: String?= null
     @SerializedName("msg")
 val msg: String?= null
     @SerializedName("data")
-val data: String?= null
+val data: ArrayList<SubCategoryDataModel>?= null
 }
 
 @Parcelize

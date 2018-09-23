@@ -12,7 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import apextechies.starbasket.R
 import apextechies.starbasket.activity.ProductDetailsActivity
+import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.adapter.ProductListAdapter
+import apextechies.starbasket.listener.OnCartListener
 import apextechies.starbasket.model.CartDataModel
 import apextechies.starbasket.model.CartModel
 import apextechies.starbasket.model.ProductDataModel
@@ -26,16 +28,24 @@ import org.json.JSONObject
 
 @SuppressLint("ValidFragment")
 class CategoryFragment(private  val sub_cat_id: String, private val id: String) : Fragment(), ProductListAdapter.OnItemClickListener {
-
     override fun onItemClick(item: ProductDataModel) {
         val intent = Intent(context, ProductDetailsActivity::class.java)
         intent.putExtra("list", item)
+        intent.putExtra("hashcart", "no")
         startActivity(intent)
     }
 
-    override fun onQuantityUpdate(item: ProductDataModel) {
+    override fun onItemClick(item: ProductDataModel, cartList: CartDataModel) {
+        val intent = Intent(context, ProductDetailsActivity::class.java)
+        intent.putExtra("list", item)
+        intent.putExtra("hashcart", "yes")
+        intent.putExtra("cartlist", cartList)
+        startActivity(intent)
+    }
 
-        retrofitDataProvider!!.addUpdaDteCart("1", item.id, item.quantity, item.name, item.unitdetails!![0].selling_price,"1", item.unitdetails[0].unit, object : DownlodableCallback<CartModel> {
+    override fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, pos: Int) {
+
+        retrofitDataProvider!!.addUpdaDteCart("1", id, quantity, name, selling_price,"1", varientid, object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
 
                 (activity as OnProductListener).onCartUpdate(result!!.data!!)
@@ -49,17 +59,10 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
         })
     }
 
-
-
-
-
     private var mProductIndex = 0
     private var isLoading = false
     private var hasLoadedAll = false
     private var retrofitDataProvider: RetrofitDataProvider?= null
-
-
-
     private var mAdapter: ProductListAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -84,6 +87,8 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
                for (i in 0 until result!!.data!!.size) {
                     mAdapter!!.addItem(result.data!!.get(i))
                 }
+
+                getCartItem()
             }
 
             override fun onFailure(error: String?) {
@@ -97,25 +102,25 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
 
     }
 
-    private inner class CustomLoadingListItemCreator : LoadingListItemCreator {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val view = activity!!.layoutInflater.inflate(R.layout.loading_row, parent, false)
-            return ViewHolder(view)
-        }
+    private fun getCartItem() {
+        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+            override fun onSuccess(result: CartModel?) {
+                for (i in 0 until result!!.data!!.size) {
+                            (activity as OnProductListener).onCartUpdate(result.data!!)
+                    mAdapter!!.addCart(result.data[i], i)
+                }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        }
+            }
 
-        internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+            override fun onFailure(error: String?) {
+            }
+
+            override fun onUnauthorized(errorNumber: Int) {
+            }
+
+        })
     }
-
-    private inner class CustomLoadingListItemSpanLookup : LoadingListItemSpanLookup {
-        override fun getSpanSize(): Int {
-            return 1
-        }
-    }
-
     interface OnProductListener {
         fun onCartUpdate(response: ArrayList<CartDataModel>)
     }

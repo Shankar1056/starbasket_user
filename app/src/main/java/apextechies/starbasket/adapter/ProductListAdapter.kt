@@ -17,12 +17,15 @@ import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 import apextechies.starbasket.R
+import apextechies.starbasket.model.CartDataModel
 import apextechies.starbasket.model.ProductDataModel
 import apextechies.starbasket.model.ProductModel
+import java.lang.Exception
 
 
 class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
     private val mItemList = ArrayList<ProductDataModel>()
+    private val mCartList = ArrayList<CartDataModel>()
     private var dialog: Dialog? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,38 +40,43 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
         val context = holder.itemView.context
 
         holder.titleTV.text = item.name
-        holder.priceTV.text = item.unitdetails!![0].actual_price
+        holder.priceTV.text = item.unitdetails!![item.selectedIndes!!].actual_price
         holder.combinationTV.visibility = View.VISIBLE
-        holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].unit
-        if (!item.unitdetails[0].discount!!.isEmpty()) {
+        holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].varient
+        if (!item.unitdetails[item.selectedIndes!!].discount!!.isEmpty()) {
             holder.offTV.visibility = View.VISIBLE
-            holder.offTV.text = item.unitdetails[0].discount
+            holder.offTV.text = item.unitdetails[item.selectedIndes!!].discount
         } else {
             holder.offTV.visibility = View.INVISIBLE
         }
 
-        if (!item.unitdetails[0].discount!!.isEmpty()) {
-			holder.offTV.setVisibility(View.VISIBLE);
-			holder.offTV.setText(item.unitdetails[0].discount);
-		} else {
-			holder.offTV.setVisibility(View.INVISIBLE);
-		}
 
         if (item.selectedIndes == -1) {
-			holder.combinationTV.setVisibility(View.INVISIBLE);
-		} else {
-			holder.combinationTV.setVisibility(View.VISIBLE);
-			holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].unit
-		}
+            holder.combinationTV.setVisibility(View.INVISIBLE);
+        } else {
+            holder.combinationTV.setVisibility(View.VISIBLE);
+            holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].unit
+        }
 
-        if (Integer.parseInt(item.quantity) > 0) {
-			holder.decTV.setVisibility(View.VISIBLE);
-			holder.quantityTV.setVisibility(View.VISIBLE)
-			holder.quantityTV.setText(item.quantity)
-		} else {
-			holder.decTV.setVisibility(View.INVISIBLE);
-			holder.quantityTV.setVisibility(View.INVISIBLE);
-		}
+        if (mCartList.size>0 || holder.quantityTV.text.toString().trim().length>0) {
+            try {
+                if (Integer.parseInt(mCartList!![item.selectedIndes!!]!!.quantity!!) > 0) {
+                    holder.decTV.setVisibility(View.VISIBLE);
+                    holder.quantityTV.setVisibility(View.VISIBLE)
+                    holder.quantityTV.setText(mCartList[item.selectedIndes!!].quantity)
+                } else {
+                    holder.decTV.setVisibility(View.INVISIBLE);
+                    holder.quantityTV.setVisibility(View.INVISIBLE);
+
+            }
+        } catch (e: IndexOutOfBoundsException){
+
+        } catch (e: Exception){
+
+        }
+    }
+
+
 
         if (!TextUtils.isEmpty(item.image)) {
 			Picasso.with(context)
@@ -87,11 +95,23 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
         mItemList.add(item)
         notifyItemInserted(mItemList.size - 1)
     }
-
+    fun addCart(item: CartDataModel, pos: Int) {
+        mCartList.add(item)
+//        notifyItemInserted(mCartList.size - 1)
+        notifyItemChanged(pos)
+    }
+    fun updateViews(pos: Int) {
+        // notifyItemInserted(mItemList.size - 1)
+        notifyItemChanged(pos)
+    }
     interface OnItemClickListener {
+        fun onItemClick(item: ProductDataModel, cartList: CartDataModel)
         fun onItemClick(item: ProductDataModel)
 
-        fun onQuantityUpdate(item: ProductDataModel)
+        //fun onQuantityUpdate(item: ProductDataModel, pos: Int)
+        fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, i: Int) {
+
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, CombinationAdapter.OnItemClickListener {
@@ -125,21 +145,43 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
             when (v.id) {
                 R.id.tv_quantity -> showCombinationDialog()
 
+
                 R.id.tv_dec_quantity -> {
-                    var item = mItemList[adapterPosition]
-                    item.quantity = (Integer.parseInt(item.quantity) - 1).toString()
-                    notifyItemChanged(adapterPosition)
-                    mListener.onQuantityUpdate(item)
-                }
+                    if (quantityTV.text.toString().trim().equals("") || quantityTV.text.toString().trim().equals("0")){
+
+                    }else{
+                        mCartList[adapterPosition].quantity = (Integer.parseInt(mCartList[adapterPosition].quantity) - 1).toString()
+                        notifyItemChanged(adapterPosition)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
+
+                    }
+                         }
 
                 R.id.tv_inc_quantity -> {
-                   var item = mItemList[adapterPosition]
-                    item.quantity = (Integer.parseInt(item.quantity) + 1).toString()
-                    notifyItemChanged(adapterPosition)
-                    mListener.onQuantityUpdate(item)
-                }
+                    if (quantityTV.text.toString().trim().equals("") || quantityTV.text.toString().trim().equals("0")){
+                       /* mCartList[adapterPosition].quantity = "1"*/
+                        quantityTV.setText("1")
+                        notifyItemChanged(adapterPosition)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, "1", mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
 
-                else -> mListener.onItemClick(mItemList[adapterPosition])
+                    }else{
+                        mCartList[adapterPosition].quantity = (Integer.parseInt(quantityTV.text.toString()) + 1).toString()
+                        notifyItemChanged(adapterPosition)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
+
+                    }
+                         }
+
+
+                else -> {
+
+                    if (mCartList.size>0){
+                        mListener.onItemClick(mItemList[adapterPosition],mCartList[adapterPosition])
+                    }else{
+                        mListener.onItemClick(mItemList[adapterPosition])
+                    }
+
+                }
             }
         }
 

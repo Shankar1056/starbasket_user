@@ -52,7 +52,8 @@ public class CategoryAdapter(private val mListener: OnItemClickListener, private
             imageIV = itemView.findViewById<View>(R.id.iv_image) as RoundedImageView
             titleTV = itemView.findViewById<View>(R.id.tv_title) as TextView
 
-            itemView.setOnClickListener { mListener.onItemClick(catlist[adapterPosition]) }
+            itemView.setOnClickListener {
+                mListener.onItemClick(catlist[adapterPosition]) }
         }
     }
 }

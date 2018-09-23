@@ -24,15 +24,14 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.navigation_drawer.*
 
-class MainActivity : AppCompatActivity(), Runnable,CategoryAdapter.OnItemClickListener,  SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
+class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickListener, SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
 
     private var isAscending = true
     private var userScrollChange = false
-    private var isBackPressed:Boolean = false
     private var prevPos = 0
     private var previousState = ViewPager.SCROLL_STATE_IDLE
-    private var mAdapter: ViewPagerAdapter?= null
-    private var retrofitDataProvider: RetrofitDataProvider?= null
+    private var mAdapter: ViewPagerAdapter? = null
+    private var retrofitDataProvider: RetrofitDataProvider? = null
 
     private var mBannerHandler: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,8 +65,8 @@ class MainActivity : AppCompatActivity(), Runnable,CategoryAdapter.OnItemClickLi
         retrofitDataProvider!!.homeBanner(object : DownlodableCallback<HomeBannerModel> {
             override fun onSuccess(result: HomeBannerModel?) {
 
-                    for (i in 0 until result!!.data!!.size) {
-                        mAdapter!!.addItem(ImageFragment.newInstance(result.data!![i].banner!!))
+                for (i in 0 until result!!.data!!.size) {
+                    mAdapter!!.addItem(ImageFragment.newInstance(result.data!![i].banner!!))
                 }
             }
 
@@ -141,23 +140,28 @@ class MainActivity : AppCompatActivity(), Runnable,CategoryAdapter.OnItemClickLi
     }
 
     override fun onItemClick(item: CategorysSubcatModel) {
-       val intent = Intent(this, ProductListActivity::class.java)
-        intent.putExtra(EXTRA_DATA, item)
+        val intent = Intent(this, ProductListActivity::class.java)
+        intent.putExtra("name", item.name)
+        intent.putExtra("id", item.id)
+        intent.putExtra("icon", item.icon)
         startActivity(intent)
 
     }
 
     override fun onViewAll(item: CategoryDataModel) {
-
-       /* val intent = Intent(this, CategoryActivity::class.java)
-        intent.putExtra(EXTRA_DATA, item)
-        startActivity(intent)*/
+        val intent = Intent(this, CategoryActivity::class.java)
+        intent.putExtra("name", item.name)
+        intent.putExtra("id", item.id)
+        intent.putExtra("icon", item.icon)
+        startActivity(intent)
     }
 
     override fun onItemClick(item: CategoryDataModel) {
         val intent = Intent(this, CategoryActivity::class.java)
-         intent.putExtra(EXTRA_DATA, item)
-         startActivity(intent)
+        intent.putExtra("name", item.name)
+        intent.putExtra("id", item.id)
+        intent.putExtra("icon", item.icon)
+        startActivity(intent)
 
     }
 }
