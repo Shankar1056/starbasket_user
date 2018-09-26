@@ -12,6 +12,9 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import apextechies.starbasket.R
+import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.login.LoginActivity
+import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashScreen: AppCompatActivity() {
@@ -47,8 +50,7 @@ class SplashScreen: AppCompatActivity() {
                 }
 
                 override fun onAnimationEnd(animation: Animator) {
-                    startActivity(Intent(this@SplashScreen, MainActivity::class.java))
-                    finish()
+                    gotoNextActivity()
                 }
                 /*
                         if (!isFinishing()) {
@@ -81,6 +83,17 @@ class SplashScreen: AppCompatActivity() {
         }, 1000)
     }
 
+    private fun gotoNextActivity() {
+        if (ClsGeneral.getStrPreferences(this@SplashScreen, AppConstants.USERID).equals("")){
+            startActivity(Intent(this@SplashScreen, LoginActivity::class.java))
+            finish()
+        }else{
+            startActivity(Intent(this@SplashScreen, MainActivity::class.java))
+            finish()
+        }
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -89,7 +102,7 @@ class SplashScreen: AppCompatActivity() {
             //startService(Intent(this, RegistrationIntentService::class.java))
 
             // authentication successful, goto HomeActivity
-            startActivity(Intent(this, MainActivity::class.java))
+           gotoNextActivity()
 
         }
 

@@ -6,6 +6,7 @@ import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
+import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -28,5 +29,7 @@ public interface ServiceMethods {
     void allAddress(String user_id, DownlodableCallback<AddressModel> callback);
     void addUpdateAddress(String user_id, String address_id, String state_id, String pincode, String address1, String address2, String nme, String city, String landmark, DownlodableCallback<AddressModel> callback);
     void deleteAddress(String address_id, DownlodableCallback<AddressModel> callback);
+    void userLogin(String email, String mobile,  String password, DownlodableCallback<LoginModel> callback);
+    void userSignup(String name, String email,  String password, String mobile, String address, String device_token, DownlodableCallback<LoginModel> callback);
 
 }

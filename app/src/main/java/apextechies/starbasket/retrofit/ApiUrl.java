@@ -18,4 +18,6 @@ public class ApiUrl {
     public static final String GETADDRESS = "get_address";
     public static final String ADDUPDATEADDRESS = "add_update_address";
     public static final String DELETEADDRESS = "delete_address";
+    public static final String USERLOGIN = "user_login";
+    public static final String USER_SIGNUP = "user_signup";
 }

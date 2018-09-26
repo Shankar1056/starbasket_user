@@ -16,6 +16,7 @@ import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
+import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -416,6 +417,68 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<AddressModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void userLogin(String email, String mobile, String password, final DownlodableCallback<LoginModel> callback) {
+        createRetrofitService().userLogin(email, mobile, password).enqueue(
+                new Callback<LoginModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<LoginModel> call, @NonNull final Response<LoginModel> response) {
+
+                        if (response.isSuccessful()) {
+                            LoginModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void userSignup(String name, String email, String password, String mobile, String address, String device_token, final DownlodableCallback<LoginModel> callback) {
+        createRetrofitService().userSignup(name, email, password, mobile, address, device_token).enqueue(
+                new Callback<LoginModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<LoginModel> call, @NonNull final Response<LoginModel> response) {
+
+                        if (response.isSuccessful()) {
+                            LoginModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

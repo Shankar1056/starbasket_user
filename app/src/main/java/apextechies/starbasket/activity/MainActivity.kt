@@ -150,17 +150,19 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
 
     override fun onViewAll(item: CategoryDataModel) {
         val intent = Intent(this, CategoryActivity::class.java)
-        intent.putExtra("name", item.name)
+        /*intent.putExtra("name", item.name)
         intent.putExtra("id", item.id)
-        intent.putExtra("icon", item.icon)
+        intent.putExtra("icon", item.icon)*/
+        intent.putExtra(EXTRA_DATA, item)
         startActivity(intent)
     }
 
     override fun onItemClick(item: CategoryDataModel) {
         val intent = Intent(this, CategoryActivity::class.java)
-        intent.putExtra("name", item.name)
+        /*intent.putExtra("name", item.name)
         intent.putExtra("id", item.id)
-        intent.putExtra("icon", item.icon)
+        intent.putExtra("icon", item.icon)*/
+        intent.putExtra(EXTRA_DATA, item)
         startActivity(intent)
 
     }

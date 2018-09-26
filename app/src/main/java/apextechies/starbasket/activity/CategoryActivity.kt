@@ -11,6 +11,7 @@ import apextechies.starbasket.adapter.AllCategoryAdapter
 import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import kotlinx.android.synthetic.main.toolbar.*
 
 class CategoryActivity: AppCompatActivity(), AllCategoryAdapter.OnItemClickListener {
     private var mAdapter: AllCategoryAdapter?= null
@@ -19,8 +20,12 @@ class CategoryActivity: AppCompatActivity(), AllCategoryAdapter.OnItemClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
+        setSupportActionBar(toolbarr)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         retrofitDataProvider = RetrofitDataProvider(this)
       var  mCategory = intent.getParcelableExtra<CategoryDataModel>(EXTRA_DATA) as CategoryDataModel
+
+        supportActionBar!!.title = mCategory.name
 
         mAdapter = AllCategoryAdapter(this)
         val categoryRV = findViewById(R.id.rv_category) as RecyclerView
@@ -44,11 +49,17 @@ class CategoryActivity: AppCompatActivity(), AllCategoryAdapter.OnItemClickListe
             override fun onUnauthorized(errorNumber: Int) { }
         })*/
 
+        toolbarr.setNavigationOnClickListener {
+            finish()
+        }
+
     }
 
     override fun onItemClick(item: CategorysSubcatModel) {
         val intent = Intent(this, ProductListActivity::class.java)
-        intent.putExtra(EXTRA_DATA, item)
+        intent.putExtra("name", item.name)
+        intent.putExtra("id", item.id)
+        intent.putExtra("icon", item.icon)
         startActivity(intent)
     }
 }

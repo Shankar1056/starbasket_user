@@ -78,7 +78,7 @@
     <string name="error_email">Invalid Email</string>
     <string name="authenticating">Authenticating…</string>
     <string name="verifying">Verifying…</string>
-    <string name="signing_up">Creating account…</string>
+    <string name="signing_up">Creating account</string>
     <string name="logged_in_successfully">Logged in successfully</string>
     <string name="total_amount">Total Amount</string>
     <string name="updating_cart">Updating cart…</string>
@@ -126,4 +126,11 @@
     <string name="promo_term1">Some promo codes are not applicable on promo cash.</string>
     <string name="promo_term2"><![CDATA[Some promo codes are not valid on purchase of edible oil, ghee &amp; baby food products.]]></string>
     <string name="something_went_wrong_error_message">Something went wrong</string>
+    <string name="hint_email_phone">Enter Email or Mobile</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="forgotpassword">Forgot Password</string>
+    <string name="donthaveaccount">Don\'t have an account?</string>
+    <string name="hint_phone">Enter Moile Number</string>
+    <string name="hint_name">Enter your name</string>
+    <string name="hint_email">Ener email id</string>
 </resources>

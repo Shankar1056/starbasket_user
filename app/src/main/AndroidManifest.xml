@@ -35,7 +35,8 @@
             android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name=".activity.CategoryActivity"/>
+        <activity android:name=".activity.CategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.ProductListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.ProductDetailsActivity"
@@ -43,6 +44,10 @@
         <activity android:name=".activity.CartActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.AddressActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".login.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".activity.CheckoutActivity"

@@ -6,6 +6,7 @@ import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
+import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -70,5 +71,13 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.DELETEADDRESS)
     @FormUrlEncoded
     Call<AddressModel> deleteAddress(@Field("address_id") String address_id);
+
+    @POST(ApiUrl.USERLOGIN)
+    @FormUrlEncoded
+    Call<LoginModel> userLogin(@Field("email") String email, @Field("mobile") String mobile, @Field("password") String password);
+
+    @POST(ApiUrl.USER_SIGNUP)
+    @FormUrlEncoded
+    Call<LoginModel> userSignup(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("mobile") String mobile, @Field("address") String address, @Field("device_token") String device_token);
 
 }

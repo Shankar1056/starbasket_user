@@ -2,19 +2,36 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/tolbaar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/logo_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    <include layout="@layout/toolbar"/>
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="15dp"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/tolbaar"
+        android:layout_margin="15dp">
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            android:fontFamily="@font/celias_light"
+            android:imeOptions="actionNext"/>
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_email"
@@ -22,17 +39,34 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_name"
         android:layout_margin="15dp">
         <EditText
             android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_email_phone"
+            android:hint="@string/hint_email"
             android:fontFamily="@font/celias_light"
             android:inputType="textEmailAddress"
             android:imeOptions="actionNext"/>
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_email"
+        android:layout_margin="15dp">
+        <EditText
+            android:id="@+id/input_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_phone"
+            android:fontFamily="@font/celias_light"
+            android:inputType="phone"
+            android:imeOptions="actionNext"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -41,7 +75,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_email"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_mobile"
         android:layout_margin="15dp">
         <EditText
             android:id="@+id/input_password"
@@ -50,54 +84,21 @@
             android:hint="@string/hint_password"
             android:fontFamily="@font/celias_light"
             android:inputType="textPassword"
-            android:imeOptions="actionDone"/>
-
+            android:imeOptions="actionNext"/>
     </android.support.design.widget.TextInputLayout>
-    <TextView
-        android:id="@+id/forgotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/forgotpassword"
-        android:layout_marginRight="15dp"
-        android:fontFamily="@font/celias_medium"
-        app:layout_constraintTop_toBottomOf="@+id/input_layout_password"/>
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standard"
         android:background="@color/colorPrimary"
-        android:text="@string/submit"
+        android:text="@string/signing_up"
         android:textColor="@color/white"
         android:fontFamily="@font/celias_bold"
-        app:layout_constraintTop_toBottomOf="@+id/forgotpassword"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_password"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_margin="15dp"/>
 
-    <TextView
-        android:id="@+id/signuptext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/donthaveaccount"
-        android:layout_margin="15dp"
-        android:fontFamily="@font/celias_light"
-        app:layout_constraintTop_toBottomOf="@+id/btn_submit"/>
-    <TextView
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signuptext"
-        android:text="@string/signing_up"
-        android:textSize="17sp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/celias_medium"
-        android:background="@drawable/draw_border_grey"
-        android:padding="10dp"/>
 
 </android.support.constraint.ConstraintLayout>
