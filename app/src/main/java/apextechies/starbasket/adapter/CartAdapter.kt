@@ -37,7 +37,7 @@ class CartAdapter (private val mListener: OnCartListener) : RecyclerView.Adapter
         val item = mItemList[position]
 
         holder.titleTV.text = item.name
-        holder.qtyTV.text = item.quantity+ " kg"
+        holder.varientTV.text = item.varient
         holder.sizeTV.text = item.quantity.toString()
         holder.priceTV.text = item.price
         if (!item.image!!.isEmpty())
@@ -65,7 +65,7 @@ class CartAdapter (private val mListener: OnCartListener) : RecyclerView.Adapter
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var imageIV: ImageView
         var titleTV: TextView
-        var qtyTV: TextView
+        var varientTV: TextView
         var priceTV: TextView
         var sizeTV: TextView
 
@@ -73,7 +73,7 @@ class CartAdapter (private val mListener: OnCartListener) : RecyclerView.Adapter
 
             imageIV = itemView.findViewById<View>(R.id.iv_image) as ImageView
             titleTV = itemView.findViewById<View>(R.id.tv_title) as TextView
-            qtyTV = itemView.findViewById<View>(R.id.tv_quantity) as TextView
+            varientTV = itemView.findViewById<View>(R.id.tv_varient) as TextView
             priceTV = itemView.findViewById<View>(R.id.tv_price) as TextView
             sizeTV = itemView.findViewById<View>(R.id.tv_size) as TextView
             itemView.findViewById<View>(R.id.tv_inc_quantity).setOnClickListener(this)

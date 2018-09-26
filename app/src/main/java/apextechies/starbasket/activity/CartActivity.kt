@@ -9,12 +9,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.CartAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.listener.OnCartListener
 import apextechies.starbasket.model.CartDataModel
 import apextechies.starbasket.model.CartModel
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_cart.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class CartActivity: AppCompatActivity(), OnCartListener {
 
@@ -24,6 +27,10 @@ class CartActivity: AppCompatActivity(), OnCartListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
+        setSupportActionBar(toolbarr)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "My Cart"
+
         retrofitDataProvider = RetrofitDataProvider(this)
         mCartAdapter = CartAdapter(this)
         val cartRV = findViewById(R.id.rv_cart) as RecyclerView
@@ -36,10 +43,14 @@ class CartActivity: AppCompatActivity(), OnCartListener {
             startActivity(Intent(this@CartActivity, CheckoutActivity::class.java))
         }
 
+        toolbarr.setNavigationOnClickListener {
+            finish()
+        }
+
     }
 
     private fun getCartItem() {
-        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.cartItem( ClsGeneral.getStrPreferences(this, AppConstants.USERID),object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 setValue(result)
             }
@@ -73,7 +84,7 @@ class CartActivity: AppCompatActivity(), OnCartListener {
     }
 
     override fun onCartUpdate(item: CartDataModel?) {
-        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.cartItem(ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 setValue(result)
             }

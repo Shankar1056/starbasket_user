@@ -14,6 +14,7 @@ import apextechies.starbasket.R
 import apextechies.starbasket.activity.ProductDetailsActivity
 import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.adapter.ProductListAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.listener.OnCartListener
 import apextechies.starbasket.model.CartDataModel
 import apextechies.starbasket.model.CartModel
@@ -21,6 +22,7 @@ import apextechies.starbasket.model.ProductDataModel
 import apextechies.starbasket.model.ProductModel
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import com.paginate.recycler.LoadingListItemCreator
 import com.paginate.recycler.LoadingListItemSpanLookup
 import org.json.JSONObject
@@ -28,24 +30,18 @@ import org.json.JSONObject
 
 @SuppressLint("ValidFragment")
 class CategoryFragment(private  val sub_cat_id: String, private val id: String) : Fragment(), ProductListAdapter.OnItemClickListener {
-    override fun onItemClick(item: ProductDataModel) {
+    override fun onItemClick(item: ArrayList<ProductDataModel>, pos: Int) {
         val intent = Intent(context, ProductDetailsActivity::class.java)
         intent.putExtra("list", item)
+        intent.putExtra("hashcart", "no")
         intent.putExtra("hashcart", "no")
         startActivity(intent)
     }
 
-    override fun onItemClick(item: ProductDataModel, cartList: CartDataModel) {
-        val intent = Intent(context, ProductDetailsActivity::class.java)
-        intent.putExtra("list", item)
-        intent.putExtra("hashcart", "yes")
-        intent.putExtra("cartlist", cartList)
-        startActivity(intent)
-    }
 
-    override fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, pos: Int) {
+    override fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varient: String?, pos: Int) {
 
-        retrofitDataProvider!!.addUpdaDteCart("1", id, quantity, name, selling_price,"1", varientid, object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(activity, AppConstants.USERID), id, quantity, name, selling_price,"1", varient, object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
 
                 (activity as OnProductListener).onCartUpdate(result!!.data!!)
@@ -103,7 +99,7 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
     }
 
     private fun getCartItem() {
-        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.cartItem(ClsGeneral.getStrPreferences(activity, AppConstants.USERID), object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 for (i in 0 until result!!.data!!.size) {
                             (activity as OnProductListener).onCartUpdate(result.data!!)

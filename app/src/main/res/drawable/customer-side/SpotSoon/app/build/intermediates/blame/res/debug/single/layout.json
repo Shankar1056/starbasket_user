@@ -1,0 +1,618 @@
+[
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_middle_choice_answer.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_middle_choice_answer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_default.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\toolbar_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_activity_notification_full.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_activity_notification_full.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_delete_stored_card_cvv.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_delete_stored_card_cvv.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cb_prog_dialog.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\cb_prog_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\package_row_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\package_row_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_store_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_store_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_net_banking.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_net_banking.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.magicretry\\magicretry\\1.0.4\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\splash_screen_new.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\splash_screen_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_question_card.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_question_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\packages_rowitem.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\packages_rowitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_orders_new_rowitem.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\my_orders_new_rowitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_get_card_information.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_get_card_information.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_cvv.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\dialog_cvv.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\traditional_summary.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\traditional_summary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\categories_tabs.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\categories_tabs.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_iteam_list.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\notification_iteam_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\package_fragment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\package_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_orders_new.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\my_orders_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\register.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\homepagenew_listview.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\homepagenew_listview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_package.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\select_package.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\single_category.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\single_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_get_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_get_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\test_activity.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\test_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar_menu.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\toolbar_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\show_invoice.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\show_invoice.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\plans_popup_exp_listview.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\plans_popup_exp_listview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\plans_rowitem.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\plans_rowitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\error_page.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\error_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\package_details.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\package_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_last_choice_answer.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_last_choice_answer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bank.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\bank.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rate_us_popup.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\rate_us_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\summary_row_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\summary_row_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\actionbar_search_address.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\actionbar_search_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\homenew_list_rowitem.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\homenew_list_rowitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_one_click_payment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_one_click_payment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\choose_action.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\choose_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\myorder_more_details.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\myorder_more_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\invoicemgnt_packagelist.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\invoicemgnt_packagelist.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\summary_header.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\summary_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cash_card_list_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\cash_card_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\user_card_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\user_card_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cb_progressdialog.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\cb_progressdialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pull_list_view_foot.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\PullToRefresh\\unspecified\\res\\layout\\pull_list_view_foot.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tacitine_summary_activity.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\tacitine_summary_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\suggest_provider.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\suggest_provider.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main_new.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\activity_main_new.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_get_offer_status.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_get_offer_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pendinginvoice_invoice.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\pendinginvoice_invoice.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\invalid_phonenumber.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\invalid_phonenumber.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\inventum_activity.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\inventum_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\magicretry_main.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.magicretry\\magicretry\\1.0.4\\res\\layout\\magicretry_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_delete_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_delete_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rate_app_pop_up.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\rate_app_pop_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_fragment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\support_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\closeandopenadapter.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\closeandopenadapter.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\postpay_invoice.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\postpay_invoice.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\emi_list_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\emi_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_actionbar.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\notification_actionbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_payments.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_payments.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\weblink.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\weblink.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\retry_otp.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\retry_otp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_headerview.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\home_headerview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_activity_survey.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_activity_survey.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_get_transaction_information.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_get_transaction_information.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pull_list_view_head.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\PullToRefresh\\unspecified\\res\\layout\\pull_list_view_head.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.2.1\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_verify_api.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_verify_api.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_verify_payment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_verify_payment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\subscriptions_summary.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\subscriptions_summary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_header.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\menu_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\homenew_griditem.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\homenew_griditem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\loading.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\plans_list_group.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\plans_list_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\invalid_username.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\invalid_username.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_emi.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_emi.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\invoicemgnt_packagelis_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\invoicemgnt_packagelis_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_activity_notification_mini.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_activity_notification_mini.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\category_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\category_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_card.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_profile.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\custom_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\register_pin.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\register_pin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_cash_card.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_cash_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main_search.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\activity_main_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\feedback_popup.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\feedback_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nb_layout.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\nb_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\wait_for_otp.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.payu.custombrowser\\payu-custom-browser\\5.3.7\\res\\layout\\wait_for_otp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\categories_fragment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\categories_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_row.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\item_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\about_screen.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\about_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\addorder_details.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\addorder_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\inventum_recharge_status.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\inventum_recharge_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\profilefragment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\profilefragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\footer_image.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\footer_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_mixpanel_android_first_choice_answer.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.mixpanel.android\\mixpanel-android\\4.6.4\\res\\layout\\com_mixpanel_android_first_choice_answer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_notification.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\fragment_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\summary_footer.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\summary_footer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\netbanking_list_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\netbanking_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_edit_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\layout_edit_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\address_item.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\layout\\address_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\layout\\activity_base.xml"
+    }
+]

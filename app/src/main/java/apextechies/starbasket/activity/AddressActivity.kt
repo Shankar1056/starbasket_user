@@ -7,11 +7,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.AddressAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.dialog.AddressDialog
 import apextechies.starbasket.model.AddressDataModel
 import apextechies.starbasket.model.AddressModel
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_address.*
 
 class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, AddressAdapter.OnItemClickListener {
@@ -38,7 +40,7 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
             finish()
         }
 
-        retrofitDataProvider!!.allAddress("1", object : DownlodableCallback<AddressModel> {
+        retrofitDataProvider!!.allAddress(ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<AddressModel> {
             override fun onSuccess(result: AddressModel?) {
                 if (result!!.data!!.size>0){
                 for (i in 0 until result!!.data!!.size) {
@@ -85,7 +87,7 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
     }
 
     private fun addAddressApi(address: AddressDataModel) {
-        retrofitDataProvider!!.addUpdateAddress(/*address.user_id*/"1", /*address.address_id*/"", /*address.state_id*/"1", address.pincode, address.address1, address.address2, address.name, address.city, address.landmark, object : DownlodableCallback<AddressModel> {
+        retrofitDataProvider!!.addUpdateAddress(ClsGeneral.getStrPreferences(this, AppConstants.USERID),  address.address_id, /*address.state_id*/"1", address.pincode, address.address1, address.address2, address.name, address.city, address.landmark, object : DownlodableCallback<AddressModel> {
             override fun onSuccess(result: AddressModel?) {
                 for (i in 0 until result!!.data!!.size) {
                     if (result != null) {

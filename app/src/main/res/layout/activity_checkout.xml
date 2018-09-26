@@ -76,6 +76,7 @@
 						android:paddingTop="@dimen/medium">
 
 						<TextView
+							android:id="@+id/totalItems"
 							fontPath="@string/font_medium"
 							android:layout_width="0dp"
 							android:layout_height="wrap_content"
@@ -111,7 +112,7 @@
 							fontPath="@string/font_medium"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							tools:text="\u20B9 30"/>
+							tools:text="\u20B9 00"/>
 					</LinearLayout>
 
 					<LinearLayout
@@ -237,7 +238,8 @@
 						android:paddingStart="@dimen/medium"
 						android:paddingTop="@dimen/standard"
 						android:text="@string/delivery_date_time"
-						android:textColor="@color/black"/>
+						android:textColor="@color/black"
+						android:visibility="gone"/>
 
 					<TextView
 						android:id="@+id/tv_date_time"
@@ -250,6 +252,7 @@
 						android:paddingStart="@dimen/large"
 						android:paddingTop="@dimen/thick"
 						android:textSize="@dimen/text_small"
+						android:visibility="gone"
 						tools:text="Tomorrow, 5 PM - 7 PM"/>
 
 					<View

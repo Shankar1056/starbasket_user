@@ -55,7 +55,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
             holder.combinationTV.setVisibility(View.INVISIBLE);
         } else {
             holder.combinationTV.setVisibility(View.VISIBLE);
-            holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].unit
+            holder.combinationTV.text = item.unitdetails[item.selectedIndes!!].varient
         }
 
         if (mCartList.size>0 || holder.quantityTV.text.toString().trim().length>0) {
@@ -105,8 +105,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
         notifyItemChanged(pos)
     }
     interface OnItemClickListener {
-        fun onItemClick(item: ProductDataModel, cartList: CartDataModel)
-        fun onItemClick(item: ProductDataModel)
+        fun onItemClick(item: ArrayList<ProductDataModel>, pos: Int)
 
         //fun onQuantityUpdate(item: ProductDataModel, pos: Int)
         fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, i: Int) {
@@ -152,7 +151,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
                     }else{
                         mCartList[adapterPosition].quantity = (Integer.parseInt(mCartList[adapterPosition].quantity) - 1).toString()
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
 
                     }
                          }
@@ -162,12 +161,12 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
                        /* mCartList[adapterPosition].quantity = "1"*/
                         quantityTV.setText("1")
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, "1", mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, "1", mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
 
                     }else{
                         mCartList[adapterPosition].quantity = (Integer.parseInt(quantityTV.text.toString()) + 1).toString()
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].id, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
 
                     }
                          }
@@ -175,11 +174,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
 
                 else -> {
 
-                    if (mCartList.size>0){
-                        mListener.onItemClick(mItemList[adapterPosition],mCartList[adapterPosition])
-                    }else{
-                        mListener.onItemClick(mItemList[adapterPosition])
-                    }
+                        mListener.onItemClick(mItemList, adapterPosition)
 
                 }
             }

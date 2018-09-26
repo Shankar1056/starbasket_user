@@ -37,7 +37,7 @@ public class CombinationAdapter extends RecyclerView.Adapter<CombinationAdapter.
 		UnitDetailsModel item = mItemList.get(position);
 
 		holder.combinationTV.setSelected(position == mProduct.getSelectedIndes());
-		holder.combinationTV.setText(item.getUnit());
+		holder.combinationTV.setText(item.getVarient());
 	}
 
 	@Override

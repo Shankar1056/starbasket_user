@@ -15,9 +15,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import apextechies.starbasket.R
 import apextechies.starbasket.R.drawable.cart
+import apextechies.starbasket.R.id.*
 import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.adapter.CombinationAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.fragment.CategoryFragment
 import apextechies.starbasket.fragment.TextFragment
 import apextechies.starbasket.listener.OnCartListener
@@ -25,12 +27,12 @@ import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.ApiUrl
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import com.rollbar.android.Rollbar.init
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
 import kotlinx.android.synthetic.main.cart_drawer.*
-import kotlinx.android.synthetic.main.dialog_combination.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -38,12 +40,13 @@ import java.lang.Exception
 
 class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickListener, OnCartListener, View.OnClickListener  {
 
-    private var product: ProductDataModel? = null
-    private var cartlist: CartDataModel? = null
+    private var product = ArrayList<ProductDataModel>()
     private var mAdapter: ViewPagerAdapter? = null
     private var dialog: Dialog? = null
     private var mCartAdapter: CartAdapter? = null
     private var retrofitDataProvider: RetrofitDataProvider?= null
+    private var cartlist = ArrayList<CartDataModel>()
+    private  var pos = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,30 +54,29 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         setSupportActionBar(toolbarr)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         retrofitDataProvider = RetrofitDataProvider(this)
-        product = getIntent().getParcelableExtra<ProductDataModel>("list")
-        if (intent.getStringExtra("hashcart").equals("yes")) {
-            cartlist = getIntent().getParcelableExtra<CartDataModel>("cartlist")
-        }
-        supportActionBar!!.setTitle(product!!.name)
+        product = getIntent().getParcelableArrayListExtra("list")
+        pos = intent.getIntExtra("pos", 0)
+        supportActionBar!!.setTitle(product[pos].name)
 
-        if (!product!!.unitdetails!![0].discount!!.isEmpty()) {
-            (findViewById(R.id.tv_off) as TextView).setText(product!!.unitdetails!![0].discount)
+        if (!product[pos].unitdetails!![0].discount!!.isEmpty()) {
+            (findViewById(R.id.tv_off) as TextView).setText(product[pos].unitdetails!![0].discount)
         } else {
             tv_off.setVisibility(View.GONE)
         }
 
         Picasso.with(this)
-                .load(product!!.image)
+                .load(product[pos].image)
                 .fit()
                 .centerInside()
                 .into(findViewById(R.id.iv_image) as ImageView)
 
-        (findViewById(R.id.tv_title) as TextView).setText(product!!.name)
+        (findViewById(R.id.tv_title) as TextView).setText(product[pos].name)
 
         tv_combination.setOnClickListener(this)
 
 
         tv_dec_quantity.setOnClickListener(this)
+        tv_inc_quantity.setOnClickListener(this)
 
         mAdapter = ViewPagerAdapter(supportFragmentManager)
         val descVP = findViewById(R.id.vp_content) as ViewPager
@@ -89,7 +91,7 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
 
 
         init()
-        setQuantity(false)
+
 
        /* ApiTask.builder(this)
                 .setGET()
@@ -105,13 +107,22 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     override fun onStart() {
         super.onStart()
 
-        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+      getCartItem()
+    }
+
+    private fun getCartItem() {
+        retrofitDataProvider!!.cartItem(ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
+
+                mCartAdapter!!.clear()
                 for (i in 0 until result!!.data!!.size) {
                     mCartAdapter!!.addItem(result.data!![i])
 
-
+                    if (result != null) {
+                        cartlist = result.data!!
+                    }
                 }
+                setQuantity(false, "")
 
                 if (mCartAdapter!!.getItemCount() > 0) {
                     if (slider.getPanelState() == SlidingUpPanelLayout.PanelState.HIDDEN) {
@@ -140,19 +151,21 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
             R.id.tv_dec_quantity -> {
                 if (tv_quantity.text.toString().trim().equals("") || tv_quantity.text.toString().trim().equals("0")){}
                 else {
-                    cartlist!!.quantity = (Integer.parseInt(cartlist!!.quantity) - 1).toString()
-                    setQuantity(true)
+                    cartlist!![product[pos].selectedIndes!!].quantity = (Integer.parseInt(cartlist!![product[pos].selectedIndes!!].quantity) - 1).toString()
+                    setQuantity(true, cartlist!![product[pos].selectedIndes!!].quantity)
                 }
             }
 
             R.id.tv_inc_quantity -> {
                 if (tv_quantity.text.toString().trim().equals("") || tv_quantity.text.toString().trim().equals("0"))
                 {
-                    cartlist!!.quantity = "1"
-                    setQuantity(true)
+                    if (cartlist!=null) {
+                        tv_quantity.text = "1"
+                    }
+                        setQuantity(true, "1")
                 }else{
-                    cartlist!!.quantity = (Integer.parseInt(tv_quantity.text.toString()) + 1).toString()
-                    setQuantity(true)
+                    cartlist!![product[pos].selectedIndes!!].quantity = (Integer.parseInt(tv_quantity.text.toString()) + 1).toString()
+                    setQuantity(true, cartlist!![product[pos].selectedIndes!!].quantity)
                 }
 
 
@@ -169,14 +182,14 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         val combinationRV = dialog!!.findViewById(R.id.rv_combination) as RecyclerView
         combinationRV.layoutManager = LinearLayoutManager(this)
         combinationRV.setHasFixedSize(true)
-        combinationRV.adapter = CombinationAdapter(product, this)
+        combinationRV.adapter = CombinationAdapter(product[pos], this)
     }
 
-    private fun setQuantity(updateToServer: Boolean) {
+    private fun setQuantity(updateToServer: Boolean, quan: String) {
         if (cartlist!=null) {
             try {
-                tv_quantity.text = cartlist!!.quantity
-                if (Integer.parseInt(cartlist!!.quantity) < 1) {
+                tv_quantity.text = cartlist!![product[pos].selectedIndes!!].quantity
+                if (Integer.parseInt(cartlist!![product[pos].selectedIndes!!].quantity) < 1) {
                     tv_dec_quantity.setVisibility(View.INVISIBLE)
                 } else {
                     tv_dec_quantity.setVisibility(View.VISIBLE)
@@ -188,9 +201,10 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         }
 
         if (updateToServer) {
-            retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, cartlist!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
+            retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(this, AppConstants.USERID), product[pos]!!.id, quan, product[pos]!!.name, product[pos]!!.unitdetails!![0].selling_price,"1", product[pos]!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
                 override fun onSuccess(result: CartModel?) {
 
+                    mCartAdapter!!.clear()
                     for (i in 0 until result!!.data!!.size) {
                         mCartAdapter!!.addItem(result.data!![i])
                     }
@@ -199,10 +213,12 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
                             slider.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED)
                         }
                         tv_total_amount.text = mCartAdapter!!.totalPrice.toString()
-                        tv_cart_count.setText(mCartAdapter!!.getItemCount())
+                       // tv_cart_count.setText(mCartAdapter!!.getItemCount())
                     } else {
                         slider.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN)
                     }
+
+                    getCartItem()
                 }
 
                 override fun onFailure(error: String?) {
@@ -215,15 +231,15 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     }
 
     private fun init() {
-        tv_price.text = product!!.unitdetails!![0].selling_price
-        if (product!!.selectedIndes!! > -1) {
-            tv_combination.setText(product!!.unitdetails!!?.get(0).unit)
+        tv_price.text = product[pos]!!.unitdetails!![product[pos].selectedIndes!!].selling_price
+        if (product[pos]!!.selectedIndes!! > -1) {
+            tv_combination.setText(product[pos]!!.unitdetails!!.get(product[pos].selectedIndes!!).varient)
         } else {
             tv_combination.setVisibility(View.GONE)
         }
 
         Picasso.with(this)
-                .load(product!!.image)
+                .load(product[pos].image)
                 .fit()
                 .centerInside()
                 .into(findViewById(R.id.iv_image) as ImageView)
@@ -234,9 +250,10 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
             dialog!!.dismiss()
         }
 
-        product!!.selectedIndes = position
+        product[pos].selectedIndes = position
 
         init()
+        setQuantity(false, "")
     }
 
 
@@ -289,12 +306,13 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     }
 
    override fun onCartUpdate(item: CartDataModel) {
-       retrofitDataProvider!!.addUpdaDteCart("1", product!!.id, cartlist!!.quantity, product!!.name, product!!.unitdetails!![0].selling_price,"1", product!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
+       retrofitDataProvider!!.addUpdaDteCart( ClsGeneral.getStrPreferences(this, AppConstants.USERID),item!!.product_id, item!!.quantity, item!!.name, item.price,"1", item.varient, object : DownlodableCallback<CartModel> {
            override fun onSuccess(result: CartModel?) {
-
+               mCartAdapter!!.clear()
                for (i in 0 until result!!.data!!.size) {
                    mCartAdapter!!.addItem(result.data!![i])
                }
+               setQuantity(false, "")
 
            }
 

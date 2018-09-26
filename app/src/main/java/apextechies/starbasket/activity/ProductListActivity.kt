@@ -10,12 +10,14 @@ import apextechies.starbasket.R
 import apextechies.starbasket.R.string.name
 import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.fragment.CategoryFragment
 import apextechies.starbasket.listener.OnCartListener
 import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.ApiUrl
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import kotlinx.android.synthetic.main.activity_product_list.*
 import kotlinx.android.synthetic.main.cart_drawer.*
@@ -79,7 +81,7 @@ class ProductListActivity: AppCompatActivity(), CategoryFragment.OnProductListen
 
     override fun onStart() {
         super.onStart()
-        retrofitDataProvider!!.cartItem("1", object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.cartItem( ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 for (i in 0 until result!!.data!!.size) {
                     mCartAdapter!!.addItem(result.data!![i])

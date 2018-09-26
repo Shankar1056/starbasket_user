@@ -130,7 +130,7 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     companion object {
-        val EXTRA_DATA = "extra_data"
+        var EXTRA_DATA = "extra_data"
         protected val IS_HOME = "is_home"
         private val TAG = "BaseActivity"
 

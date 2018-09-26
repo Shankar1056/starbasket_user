@@ -37,7 +37,7 @@ class CheckoutActivity: AppCompatActivity(), DateTimeDialog.OnDateTimeListener, 
             val intent = Intent(this, AddressActivity::class.java)
             startActivityForResult(intent, RC_ADDRESS)
 
-            tv_label_date_time.setOnClickListener {
+            /*tv_label_date_time.setOnClickListener {
                 val dialog = DateTimeDialog()
                 dialog.show(supportFragmentManager, null)
 
@@ -46,8 +46,13 @@ class CheckoutActivity: AppCompatActivity(), DateTimeDialog.OnDateTimeListener, 
 
                     }
                 }
-            }
+            }*/
         }
+
+        totalItems.text = "4"
+        tv_item.text = "\u20B9 200"
+        tv_sub_total.text = "\u20B9 200"
+        tv_grand_total.text = "\u20B9 200"
     }
 
     private fun isInputValid(): Boolean {
@@ -82,7 +87,7 @@ class CheckoutActivity: AppCompatActivity(), DateTimeDialog.OnDateTimeListener, 
 
         if (requestCode == RC_ADDRESS && resultCode == RESULT_OK) {
             checkout!!.setAddress(data!!.getSerializableExtra(EXTRA_DATA) as AddressModel)
-            (findViewById(R.id.tv_address) as TextView).text = checkout!!.getAddress().toString()
+            tv_address.text = checkout!!.getAddress().toString()
         }
     }
 

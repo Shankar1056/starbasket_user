@@ -1,6 +1,7 @@
 package apextechies.starbasket.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.nfc.NfcAdapter.EXTRA_DATA
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -23,6 +24,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.navigation_drawer.*
+import android.text.Html
+import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasketseller.common.AppConstants
+import kotlinx.android.synthetic.main.activity_splash.*
+
 
 class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickListener, SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
 
@@ -59,6 +65,29 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
 
         getBanner()
         gethomeCategory()
+
+        nav_my_cart.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
+        nav_my_addresses.setOnClickListener {
+            startActivity(Intent(this@MainActivity, AddressActivity::class.java))
+        }
+        nav_share.setOnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/html"
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("play store link"))
+            startActivity(Intent.createChooser(sharingIntent, "Share using"))
+        }
+        nav_logout.setOnClickListener {
+            ClsGeneral.setPreferences(this, AppConstants.USERID, "")
+            startActivity(Intent(this@MainActivity, SplashScreen::class.java))
+            finishAffinity()
+        }
+        apex.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("http://apextechies.com/")
+            startActivity(intent)
+        }
     }
 
     private fun getBanner() {

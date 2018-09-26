@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_cash_card.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_cash_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_merchant_payment.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_merchant_payment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_payments.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_payments.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_emi.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_emi.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_provider.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\menu\\menu_provider.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_net_banking.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_net_banking.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_user_cards.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_user_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_base.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_base.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_verify_api.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\exploded-aar\\SpotSoon\\sdkui\\unspecified\\res\\menu\\menu_verify_api.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\Users\\Shankar\\Desktop\\customer-side\\SpotSoon\\app\\src\\main\\res\\menu\\menu_main.xml"
+    }
+]
