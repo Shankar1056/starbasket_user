@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -23,8 +24,7 @@ class SplashScreen: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.window
-                .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash)
         overridePendingTransition(R.anim.left_in, R.anim.left_out)
         /*startActivity(Intent(this@SplashScreen, MainActivity::class.java))
@@ -81,6 +81,12 @@ class SplashScreen: AppCompatActivity() {
             }
             animator.start()
         }, 1000)
+
+        apex.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("http://apextechies.com/")
+            startActivity(intent)
+        }
     }
 
     private fun gotoNextActivity() {

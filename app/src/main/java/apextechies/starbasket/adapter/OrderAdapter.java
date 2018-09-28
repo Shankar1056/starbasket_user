@@ -12,14 +12,13 @@ import java.util.ArrayList;
 
 import apextechies.starbasket.R;
 import apextechies.starbasket.model.OrderModel;
+import apextechies.starbasket.model.UserOrderDataListModel;
+import apextechies.starbasket.model.UserOrderListModel;
 
-/**
- * @author Samuel Robert <samuelrbrt16@gmail.com>
- * @created on 20 Mar 2017 at 4:55 PM
- */
+
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
-	private final ArrayList<OrderModel> mItemList = new ArrayList<>();
+	private final ArrayList<UserOrderDataListModel> mItemList = new ArrayList<>();
 	private final OnItemClickListener mListener;
 	
 	public OrderAdapter(OnItemClickListener listener) {
@@ -35,13 +34,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 	
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
-		OrderModel item = mItemList.get(position);
+		UserOrderDataListModel item = mItemList.get(position);
 		Resources res = holder.itemView.getResources();
 		
-		holder.dateTV.setText(item.getDate());
-		holder.orderIdTV.setText(res.getString(R.string.format_order_id, item.getOrderId()));
-		holder.orderStatusTV.setText(item.getOrderStatus());
-		holder.totalTV.setText(res.getString(R.string.format_price, item.getTotal()));
+		holder.dateTV.setText(item.getOrder_date());
+		holder.orderIdTV.setText(res.getString(R.string.format_order_id, item.getTransaction_id()));
+		holder.orderStatusTV.setText(item.getOrder_status());
+		holder.totalTV.setText("₹ "+item.getTotal_price());
 	}
 	
 	@Override
@@ -49,13 +48,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 		return mItemList.size();
 	}
 	
-	public void addItem(OrderModel item) {
+	public void addItem(UserOrderDataListModel item) {
 		mItemList.add(item);
 		notifyItemInserted(mItemList.size() - 1);
 	}
 	
 	public interface OnItemClickListener {
-		void onItemClick(OrderModel item);
+		void onItemClick(UserOrderDataListModel item);
 	}
 	
 	class ViewHolder extends RecyclerView.ViewHolder {

@@ -14,6 +14,7 @@ import apextechies.starbasket.R;
 import apextechies.starbasket.model.AddressModel;
 import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
+import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
@@ -21,6 +22,7 @@ import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
+import apextechies.starbasket.model.UserOrderListModel;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -240,8 +242,8 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
     }
 
     @Override
-    public void addUpdaDteCart(String user_id, String product_id, String quantity, String name, String price, String image, String unit, final DownlodableCallback<CartModel> callback) {
-        createRetrofitService().addUpdateCart(user_id,product_id, quantity, name, price,image, unit).enqueue(
+    public void addUpdaDteCart(String user_id, String product_id, String quantity, String name, String price, String image, String unit, String seller_id, final DownlodableCallback<CartModel> callback) {
+        createRetrofitService().addUpdateCart(user_id,product_id, quantity, name, price,image, unit, seller_id).enqueue(
                 new Callback<CartModel>() {
                     @Override
                     public void onResponse(@NonNull Call<CartModel> call, @NonNull final Response<CartModel> response) {
@@ -479,6 +481,68 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void paymant(CheckoutModel checkoutModel, final DownlodableCallback<CommonModel> callback) {
+        createRetrofitService().doPayment(checkoutModel).enqueue(
+                new Callback<CommonModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
+
+                        if (response.isSuccessful()) {
+                            CommonModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void userOrderList(String user_id, final DownlodableCallback<UserOrderListModel> callback) {
+        createRetrofitService().userOrderList(user_id).enqueue(
+                new Callback<UserOrderListModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<UserOrderListModel> call, @NonNull final Response<UserOrderListModel> response) {
+
+                        if (response.isSuccessful()) {
+                            UserOrderListModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<UserOrderListModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

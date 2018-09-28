@@ -11,7 +11,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="6">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="3">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -83,16 +83,20 @@
         android:orientation="horizontal"
         android:layout_weight="1"
         android:gravity="center">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/apex_logo_new"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by: "
+            android:fontFamily="@font/celias_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimary"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ApexTechies Pvt Ltd"
-            android:layout_marginLeft="10dp"
             android:textColor="@color/grey_600"
+            android:textSize="12sp"
             android:fontFamily="@font/celias_medium"/>
     </LinearLayout>
 </LinearLayout>

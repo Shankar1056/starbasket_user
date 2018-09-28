@@ -52,6 +52,9 @@ class CartAdapter (private val mListener: OnCartListener) : RecyclerView.Adapter
         return mItemList.size
     }
 
+    fun list(): ArrayList<CartDataModel> {
+       return mItemList
+    }
     fun addItem(item: CartDataModel) {
         mItemList.add(item)
         notifyItemInserted(mItemList.size - 1)

@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashScreen">
+        <activity android:name=".activity.SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +49,10 @@
         <activity android:name=".login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".login.SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.OrderActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.OrderDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".activity.CheckoutActivity"

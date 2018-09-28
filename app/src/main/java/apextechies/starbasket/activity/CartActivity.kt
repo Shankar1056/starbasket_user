@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 class CartActivity: AppCompatActivity(), OnCartListener {
 
     var retrofitDataProvider: RetrofitDataProvider?= null
+    var totalprice : Int = 0
 
     private var mCartAdapter: CartAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +41,18 @@ class CartActivity: AppCompatActivity(), OnCartListener {
 
         getCartItem()
         tv_checkout.setOnClickListener {
-            startActivity(Intent(this@CartActivity, CheckoutActivity::class.java))
+            startActivity(Intent(this@CartActivity, CheckoutActivity::class.java)
+                    .putExtra("itemcount", mCartAdapter!!.itemCount)
+                    .putExtra("price", totalprice)
+                    .putParcelableArrayListExtra("list", mCartAdapter!!.list()))
         }
 
         toolbarr.setNavigationOnClickListener {
+            finish()
+        }
+
+        btn_home.setOnClickListener {
+            startActivity(Intent(this@CartActivity,MainActivity::class.java))
             finish()
         }
 
@@ -75,12 +84,20 @@ class CartActivity: AppCompatActivity(), OnCartListener {
 
             ll_empty.visibility = View.GONE
             ll_content.visibility = View.VISIBLE
+            getTotalPrice(result.data)
         }
         else{
             ll_empty.visibility = View.VISIBLE
             ll_content.visibility = View.GONE
         }
 
+    }
+
+    private fun getTotalPrice(data: ArrayList<CartDataModel>?) {
+
+        for(i in 0 until data!!.size){
+            totalprice = totalprice+Integer.parseInt(data[i].price)
+        }
     }
 
     override fun onCartUpdate(item: CartDataModel?) {

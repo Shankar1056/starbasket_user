@@ -83,11 +83,12 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             startActivity(Intent(this@MainActivity, SplashScreen::class.java))
             finishAffinity()
         }
-        apex.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("http://apextechies.com/")
-            startActivity(intent)
+        nav_my_orders.setOnClickListener {
+            startActivity(Intent(this@MainActivity, OrderActivity::class.java))
         }
+
+        tv_mobile.text = ClsGeneral.getStrPreferences(this, AppConstants.MOBILE)
+
     }
 
     private fun getBanner() {

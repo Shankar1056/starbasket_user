@@ -20,4 +20,6 @@ public class ApiUrl {
     public static final String DELETEADDRESS = "delete_address";
     public static final String USERLOGIN = "user_login";
     public static final String USER_SIGNUP = "user_signup";
+    public static final String CHECKOUT = "check_out";
+    public static final String USERORDERLIST = "get_orderistory_user";
 }

@@ -4,6 +4,7 @@ package apextechies.starbasket.retrofit;
 import apextechies.starbasket.model.AddressModel;
 import apextechies.starbasket.model.CartModel;
 import apextechies.starbasket.model.CategoryModel;
+import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
@@ -11,6 +12,7 @@ import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
+import apextechies.starbasket.model.UserOrderListModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -51,7 +53,7 @@ public interface ApiRetrofitService {
 
     @POST(ApiUrl.ADDUPDATECART)
     @FormUrlEncoded
-    Call<CartModel> addUpdateCart(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("quantity") String quantity, @Field("name") String name, @Field("price") String price, @Field("image") String image, @Field("unit") String unit );
+    Call<CartModel> addUpdateCart(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("quantity") String quantity, @Field("name") String name, @Field("price") String price, @Field("image") String image, @Field("unit") String unit , @Field("seller_id") String seller_id );
 
     @POST(ApiUrl.DELETECARTITEM)
     @FormUrlEncoded
@@ -79,5 +81,12 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.USER_SIGNUP)
     @FormUrlEncoded
     Call<LoginModel> userSignup(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("mobile") String mobile, @Field("address") String address, @Field("device_token") String device_token);
+
+    @POST(ApiUrl.CHECKOUT)
+    Call<CommonModel> doPayment(@Body CheckoutModel checkoutModel );
+
+    @POST(ApiUrl.USERORDERLIST)
+    @FormUrlEncoded
+    Call<UserOrderListModel> userOrderList(@Field("user_id") String user_id);
 
 }

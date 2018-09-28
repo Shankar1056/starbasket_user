@@ -201,7 +201,7 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         }
 
         if (updateToServer) {
-            retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(this, AppConstants.USERID), product[pos]!!.id, quan, product[pos]!!.name, product[pos]!!.unitdetails!![0].selling_price,"1", product[pos]!!.unitdetails!![0].varient, object : DownlodableCallback<CartModel> {
+            retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(this, AppConstants.USERID), product[pos]!!.id, quan, product[pos]!!.name, product[pos]!!.unitdetails!![0].selling_price,"1", product[pos]!!.unitdetails!![0].varient, product[pos].seller_id, object : DownlodableCallback<CartModel> {
                 override fun onSuccess(result: CartModel?) {
 
                     mCartAdapter!!.clear()
@@ -306,7 +306,7 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
     }
 
    override fun onCartUpdate(item: CartDataModel) {
-       retrofitDataProvider!!.addUpdaDteCart( ClsGeneral.getStrPreferences(this, AppConstants.USERID),item!!.product_id, item!!.quantity, item!!.name, item.price,"1", item.varient, object : DownlodableCallback<CartModel> {
+       retrofitDataProvider!!.addUpdaDteCart( ClsGeneral.getStrPreferences(this, AppConstants.USERID),item!!.product_id, item!!.quantity, item!!.name, item.price,"1", item.varient, item.seller_id, object : DownlodableCallback<CartModel> {
            override fun onSuccess(result: CartModel?) {
                mCartAdapter!!.clear()
                for (i in 0 until result!!.data!!.size) {

@@ -31,5 +31,9 @@ class CartDataModel(
         @SerializedName("image")
         val image: String?= null,
         @SerializedName("varient")
-        val varient: String?= null
+        val varient: String?= null,
+        @SerializedName("seller_id")
+        val seller_id: String?= null,
+        @SerializedName("status")
+        val status: String?= null
 ) : Parcelable

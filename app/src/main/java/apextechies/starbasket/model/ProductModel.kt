@@ -29,6 +29,8 @@ class ProductDataModel(
         val image: String? = null,
         @SerializedName("created_date")
         val created_date: String? = null,
+        @SerializedName("seller_id")
+        val seller_id: String? = null,
         var selectedIndes: Int? = 0,
         @SerializedName("unitdetails")
         val unitdetails: ArrayList<UnitDetailsModel>? = null,

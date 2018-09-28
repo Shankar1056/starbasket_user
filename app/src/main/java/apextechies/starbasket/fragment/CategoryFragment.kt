@@ -39,9 +39,9 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
     }
 
 
-    override fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varient: String?, pos: Int) {
+    override fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varient: String?, seller_id: String,  pos: Int) {
 
-        retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(activity, AppConstants.USERID), id, quantity, name, selling_price,"1", varient, object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(activity, AppConstants.USERID), id, quantity, name, selling_price,"1", varient, seller_id,object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
 
                 (activity as OnProductListener).onCartUpdate(result!!.data!!)

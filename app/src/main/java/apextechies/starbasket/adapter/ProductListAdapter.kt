@@ -108,7 +108,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
         fun onItemClick(item: ArrayList<ProductDataModel>, pos: Int)
 
         //fun onQuantityUpdate(item: ProductDataModel, pos: Int)
-        fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, i: Int) {
+        fun onQuantityUpdate(id: String?, quantity: String, name: String?, selling_price: String?, image: String, varientid: String?, seller_id: String,  i: Int) {
 
         }
     }
@@ -151,7 +151,7 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
                     }else{
                         mCartList[adapterPosition].quantity = (Integer.parseInt(mCartList[adapterPosition].quantity) - 1).toString()
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, mItemList[adapterPosition].seller_id!!, 0)
 
                     }
                          }
@@ -161,12 +161,12 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
                        /* mCartList[adapterPosition].quantity = "1"*/
                         quantityTV.setText("1")
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, "1", mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, "1", mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, mItemList[adapterPosition].seller_id!!,0)
 
                     }else{
                         mCartList[adapterPosition].quantity = (Integer.parseInt(quantityTV.text.toString()) + 1).toString()
                         notifyItemChanged(adapterPosition)
-                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, 0)
+                        mListener.onQuantityUpdate(mItemList[adapterPosition].id, mCartList[adapterPosition].quantity, mItemList[adapterPosition].name, mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].selling_price, "image", mItemList[adapterPosition].unitdetails!![mItemList[adapterPosition].selectedIndes!!].varient, mItemList[adapterPosition].seller_id!!,0)
 
                     }
                          }
