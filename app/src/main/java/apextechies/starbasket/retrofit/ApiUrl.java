@@ -22,4 +22,8 @@ public class ApiUrl {
     public static final String USER_SIGNUP = "user_signup";
     public static final String CHECKOUT = "check_out";
     public static final String USERORDERLIST = "get_orderistory_user";
+    public static final String FORGETPASSWORD = "forget_password";
+    public static final String INSERTPRESCRIPTION = "insert_prescription";
+    public static final String GETPRESCRIPTION = "get_prescription";
+    public static final String CANCELORDER = "cancel_ordr";
 }

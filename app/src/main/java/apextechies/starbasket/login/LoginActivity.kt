@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
     var retrofitDataProvider: RetrofitDataProvider? = null
     var mobile = ""
     var email = ""
+    var status = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +38,18 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, start: Int, before: Int, count: Int) {
 
-                if (validmobile(p0)) {
-                    mobile = p0.toString()
-                } else {
-                    email = p0.toString()
-                }
+                validmobile(p0)
             }
         })
 
         btn_submit.setOnClickListener {
+            if (status){
+                mobile = input_email.text.toString().trim()
+                email = ""
+            }else{
+                email = input_email.text.toString().trim()
+                mobile = ""
+            }
             if (Utilz.isInternetConnected(this)) {
                 if (input_email.text.toString().trim().equals("")) Toast.makeText(this, "Enter email id", Toast.LENGTH_SHORT).show()
                 else if (input_password.text.toString().trim().equals("")) Toast.makeText(this, "Enter password", Toast.LENGTH_SHORT).show()
@@ -89,14 +93,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun validmobile(p0: CharSequence?): Boolean {
+    private fun validmobile(p0: CharSequence?) {
+
         try {
-            if (Integer.parseInt(p0.toString()) > 0) {
-                return true
+            if (java.lang.Double.parseDouble(p0.toString()) > 0) {
+                 status = true
             }
         } catch (e: NumberFormatException) {
-            return false
+            status  = false
         }
-        return false
     }
 }

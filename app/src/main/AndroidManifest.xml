@@ -54,6 +54,10 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.OrderDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.WriteUploadPrecription"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".login.ForgotPassword"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".activity.CheckoutActivity"
             android:theme="@style/AppTheme.NoActionBar"/>

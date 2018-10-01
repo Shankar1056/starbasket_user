@@ -133,4 +133,9 @@
     <string name="hint_phone">Enter Moile Number</string>
     <string name="hint_name">Enter your name</string>
     <string name="hint_email">Ener email id</string>
+    <string name="hint_emailid">Enter rgistered email id</string>
+    <string name="hint_otp">Enter OTP sent to your email id</string>
+    <string name="hint_newpassword">Enter new password</string>
+    <string name="pleaewait">Please wait...</string>
+    <string name="otpsentmessage">An OTP has sent to your email id, please enter correct otp to reset your password. \nThank you.</string>
 </resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/toptoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include layout="@layout/toolbar"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/tv_proceed_to_pay"
+        android:layout_below="@+id/toptoolbar">
+    <TextView
+        android:id="@+id/descTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Write your kitchen prescription below in the box"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/celias_medium"/>
+
+    <EditText
+        android:id="@+id/descriptionET"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textMultiLine"
+        android:padding="20dp"
+        android:gravity="top"
+        android:background="@color/white"
+        android:text=""
+        android:hint="1 kg sugar, 10 kg basmati rice, 5 kg ghee etc..."
+        app:layout_constraintTop_toBottomOf="@+id/descTV"/>
+
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_proceed_to_pay"
+            android:fontFamily="@string/font_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/standard"
+            android:text="@string/submit"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_medium"/>
+</RelativeLayout>

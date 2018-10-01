@@ -8,6 +8,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -88,5 +89,21 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.USERORDERLIST)
     @FormUrlEncoded
     Call<UserOrderListModel> userOrderList(@Field("user_id") String user_id);
+
+    @POST(ApiUrl.INSERTPRESCRIPTION)
+    @FormUrlEncoded
+    Call<CommonModel> insertPrescription(@Field("user_id") String user_id, @Field("prescription") String prescription);
+
+    @POST(ApiUrl.FORGETPASSWORD)
+    @FormUrlEncoded
+    Call<CommonModel> forgotPassword(@Field("email_id") String email_id, @Field("otp") String otp, @Field("password") String password, @Field("operation") String operation);
+
+    @POST(ApiUrl.GETPRESCRIPTION)
+    @FormUrlEncoded
+    Call<PrescriptionModel> getPrescripton(@Field("user_id") String user_id);
+
+    @POST(ApiUrl.CANCELORDER)
+    @FormUrlEncoded
+    Call<CommonModel> cancelOrder(@Field("transaction_id") String user_id);
 
 }

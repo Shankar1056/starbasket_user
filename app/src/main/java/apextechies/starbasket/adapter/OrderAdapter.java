@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import apextechies.starbasket.R;
+import apextechies.starbasket.common.Utilz;
 import apextechies.starbasket.model.OrderModel;
 import apextechies.starbasket.model.UserOrderDataListModel;
 import apextechies.starbasket.model.UserOrderListModel;
@@ -39,7 +40,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 		
 		holder.dateTV.setText(item.getOrder_date());
 		holder.orderIdTV.setText(res.getString(R.string.format_order_id, item.getTransaction_id()));
-		holder.orderStatusTV.setText(item.getOrder_status());
+		holder.orderStatusTV.setText(""+Utilz.getStatus(item.getOrder_status()));
 		holder.totalTV.setText("₹ "+item.getTotal_price());
 	}
 	

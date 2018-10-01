@@ -14,7 +14,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+<android.support.v4.widget.NestedScrollView
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
@@ -36,9 +38,15 @@
 				android:id="@+id/rv_order"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="@dimen/thin"
-				app:layoutManager="LinearLayoutManager"/>
+				android:layout_marginTop="@dimen/thin"/>
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/rv_prescription"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/thin"/>
 		</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
 
 		<LinearLayout
 			android:id="@+id/ll_empty"

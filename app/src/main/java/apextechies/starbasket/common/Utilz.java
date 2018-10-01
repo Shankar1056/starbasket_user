@@ -3,6 +3,7 @@ package apextechies.starbasket.common;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -306,6 +307,47 @@ public class Utilz {
     }
 
 
+    public static void showProgress(Context context, String message) {
+        if (dialog != null && dialog.isShowing()) {
+            return;
+        }
 
+        dialog = ProgressDialog.show(context, null, message, true, true);
+
+    }
+
+    public static void dismissProgressDialog() {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+            dialog = null;
+        }
+    }
+
+    public static void displayMessageAlert(String Message, Context context) {
+        try {
+            new AlertDialog.Builder(context).setMessage(Message).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+
+                }
+            }).create().show();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    public static String getStatus(String order_status) {
+        String status ="";
+        if (order_status.equals("1")){
+            status = "Pending";
+        }else if (order_status.equals("2")){
+            status = "Confirmed";
+        }else if (order_status.equals("3")){
+            status = "Delivered";
+        }else if (order_status.equals("4")){
+            status = "Cancelled";
+        }
+        return status;
+    }
 }
 

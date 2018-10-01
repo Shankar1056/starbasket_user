@@ -14,10 +14,6 @@ import apextechies.starbasket.adapter.CategoryAdapter
 import apextechies.starbasket.adapter.SubCategoryAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
 import apextechies.starbasket.fragment.ImageFragment
-import apextechies.starbasket.model.CategoryDataModel
-import apextechies.starbasket.model.CategoryModel
-import apextechies.starbasket.model.CategorysSubcatModel
-import apextechies.starbasket.model.HomeBannerModel
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,8 +22,11 @@ import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.navigation_drawer.*
 import android.text.Html
 import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.model.*
 import apextechies.starbasketseller.common.AppConstants
+import com.google.android.gms.wallet.Cart
 import kotlinx.android.synthetic.main.activity_splash.*
+import kotlinx.android.synthetic.main.cart_item_count.*
 
 
 class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickListener, SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
@@ -87,6 +86,16 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             startActivity(Intent(this@MainActivity, OrderActivity::class.java))
         }
 
+        cartLL.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
+        action_cart.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
+        uploadPres.setOnClickListener {
+            startActivity(Intent(this@MainActivity, WriteUploadPrecription::class.java))
+        }
+
         tv_mobile.text = ClsGeneral.getStrPreferences(this, AppConstants.MOBILE)
 
     }
@@ -113,6 +122,23 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             override fun onSuccess(result: CategoryModel?) {
                 rv_category.adapter = CategoryAdapter(this@MainActivity, result!!.data!!)
                 rv_subcategory.adapter = SubCategoryAdapter(this@MainActivity, result!!.data!!)
+
+                getCartItem()
+            }
+
+
+            override fun onFailure(error: String?) {
+            }
+
+            override fun onUnauthorized(errorNumber: Int) {
+            }
+        })
+    }
+
+    private fun getCartItem() {
+        retrofitDataProvider!!.cartItem( ClsGeneral.getStrPreferences(this, AppConstants.USERID),object : DownlodableCallback<CartModel> {
+            override fun onSuccess(result: CartModel?) {
+                tv_notif_count.text = result!!.data!!.size.toString()
             }
 
             override fun onFailure(error: String?) {
@@ -120,6 +146,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
 
             override fun onUnauthorized(errorNumber: Int) {
             }
+
         })
     }
 

@@ -18,6 +18,7 @@ import apextechies.starbasketseller.common.AppConstants
 import com.razorpay.PaymentData
 import com.razorpay.PaymentResultWithDataListener
 import kotlinx.android.synthetic.main.activity_checkout.*
+import kotlinx.android.synthetic.main.toolbar.*
 import java.lang.Exception
 
 class CheckoutActivity: AppCompatActivity(), PaymentResultWithDataListener {
@@ -37,6 +38,9 @@ class CheckoutActivity: AppCompatActivity(), PaymentResultWithDataListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
+        setSupportActionBar(toolbarr)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "CheckOut"
 
         retrofitDataProvider = RetrofitDataProvider(this)
         tv_label_address.setOnClickListener {
@@ -64,6 +68,7 @@ class CheckoutActivity: AppCompatActivity(), PaymentResultWithDataListener {
 
                 if (result!!.data.equals("success")){
                     Toast.makeText(this@CheckoutActivity, ""+result.data, Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@CheckoutActivity, OrderActivity::class.java))
                 }
             }
 

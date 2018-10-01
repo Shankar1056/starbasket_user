@@ -1,27 +1,23 @@
 package apextechies.starbasket.activity
 
+import android.content.Intent
 import android.os.Bundle
-import android.preference.Preference
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.TextView
 
-
-import org.json.JSONException
-import org.json.JSONObject
 
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.OrderDetailsAdapter
-import apextechies.starbasket.model.OrderDetailsModel
-import apextechies.starbasket.model.OrderModel
+import apextechies.starbasket.common.Utilz
+import apextechies.starbasket.model.CommonModel
 import apextechies.starbasket.model.UserOrderDataListModel
-import apextechies.starbasket.retrofit.ApiUrl
+import apextechies.starbasket.retrofit.DownlodableCallback
+import apextechies.starbasket.retrofit.RetrofitDataProvider
 import kotlinx.android.synthetic.main.activity_order_details.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class OrderDetailsActivity : AppCompatActivity() {
     private var mAdapter: OrderDetailsAdapter? = null
+    var retrofitDataProvider: RetrofitDataProvider?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +28,8 @@ class OrderDetailsActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.title = "Order Details"
 
+        retrofitDataProvider = RetrofitDataProvider((this))
+
         mAdapter = OrderDetailsAdapter()
         rv_order.adapter = mAdapter
 
@@ -39,7 +37,7 @@ class OrderDetailsActivity : AppCompatActivity() {
 
         tv_order_id.text = (getString(R.string.format_order_id, mOrder!!.transaction_id));
         tv_total.text = "₹ "+mOrder.total_price
-        tv_order_status.text = (mOrder.order_status);
+        tv_order_status.text = Utilz.getStatus(mOrder.order_status);
 
 
         mAdapter!!.addItems(mOrder.varientdetails!!)
@@ -47,8 +45,28 @@ class OrderDetailsActivity : AppCompatActivity() {
         toolbarr.setNavigationOnClickListener {
             finish()
         }
+
+        tv_cancel.setOnClickListener {
+            val strng = mOrder!!.transaction_id!!.replace("#", "")
+            cancelOrder(strng)
+        }
     }
 
+    private fun cancelOrder(transaction_id: String?) {
+
+        retrofitDataProvider!!.cancelOrder(transaction_id, object : DownlodableCallback<CommonModel> {
+            override fun onSuccess(result: CommonModel?) {
+                if (result!!.status.equals("true")){
+                    startActivity(Intent(this@OrderDetailsActivity, OrderActivity::class.java))
+                    finish()
+                }
+            }
+
+            override fun onFailure(error: String?) { }
+
+            override fun onUnauthorized(errorNumber: Int) { }
+        })
+    }
 
 
 }

@@ -18,6 +18,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -543,6 +544,130 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<UserOrderListModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void insertPrescription(String user_id, String prescription, final DownlodableCallback<CommonModel> callback) {
+        createRetrofitService().insertPrescription(user_id, prescription).enqueue(
+                new Callback<CommonModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
+
+                        if (response.isSuccessful()) {
+                            CommonModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void forgotPassword(String email_id, String otp, String password, String operation, final DownlodableCallback<CommonModel> callback) {
+        createRetrofitService().forgotPassword(email_id, otp, password,operation).enqueue(
+                new Callback<CommonModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
+
+                        if (response.isSuccessful()) {
+                            CommonModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void getPrescription(String user_id, final DownlodableCallback<PrescriptionModel> callback) {
+        createRetrofitService().getPrescripton(user_id).enqueue(
+                new Callback<PrescriptionModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<PrescriptionModel> call, @NonNull final Response<PrescriptionModel> response) {
+
+                        if (response.isSuccessful()) {
+                            PrescriptionModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<PrescriptionModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void cancelOrder(String transaction_id, final DownlodableCallback<CommonModel> callback) {
+        createRetrofitService().cancelOrder(transaction_id).enqueue(
+                new Callback<CommonModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
+
+                        if (response.isSuccessful()) {
+                            CommonModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

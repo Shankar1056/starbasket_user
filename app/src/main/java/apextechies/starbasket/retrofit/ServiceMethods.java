@@ -8,6 +8,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -35,5 +36,9 @@ public interface ServiceMethods {
     void userSignup(String name, String email,  String password, String mobile, String address, String device_token, DownlodableCallback<LoginModel> callback);
     void paymant(CheckoutModel checkoutModel , DownlodableCallback<CommonModel> callback);
     void userOrderList(String user_id , DownlodableCallback<UserOrderListModel> callback);
+    void insertPrescription(String user_id , String prescription , DownlodableCallback<CommonModel> callback);
+    void forgotPassword(String email_id, String otp, String password, String operation, DownlodableCallback<CommonModel> callback);
+    void getPrescription(String user_id, DownlodableCallback<PrescriptionModel> callback);
+    void cancelOrder(String transaction_id, DownlodableCallback<CommonModel> callback);
 
 }
