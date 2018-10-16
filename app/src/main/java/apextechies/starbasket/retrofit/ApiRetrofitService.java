@@ -81,7 +81,7 @@ public interface ApiRetrofitService {
 
     @POST(ApiUrl.USER_SIGNUP)
     @FormUrlEncoded
-    Call<LoginModel> userSignup(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("mobile") String mobile, @Field("address") String address, @Field("device_token") String device_token);
+    Call<LoginModel> userSignup(@Field("name") String name, @Field("lastname") String lastname, @Field("email") String email, @Field("password") String password, @Field("mobile") String mobile, @Field("address") String address, @Field("device_token") String device_token);
 
     @POST(ApiUrl.CHECKOUT)
     Call<CommonModel> doPayment(@Body CheckoutModel checkoutModel );

@@ -10,6 +10,7 @@ import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.CartAdapter
 import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.fragment.CategoryFragment
 import apextechies.starbasket.listener.OnCartListener
 import apextechies.starbasket.model.CartDataModel
 import apextechies.starbasket.model.CartModel
@@ -98,12 +99,13 @@ class CartActivity: AppCompatActivity(), OnCartListener {
         for(i in 0 until data!!.size){
             totalprice = totalprice+Integer.parseInt(data[i].price)
         }
+        tv_grand_total.text = totalprice.toString()
     }
 
     override fun onCartUpdate(item: CartDataModel?) {
-        retrofitDataProvider!!.cartItem(ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(this, AppConstants.USERID), item!!.product_id, item.quantity, item.name, item.price,"1", item.varient, item.seller_id,object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
-                setValue(result)
+                getCartItem()
             }
 
             override fun onFailure(error: String?) {
@@ -111,7 +113,6 @@ class CartActivity: AppCompatActivity(), OnCartListener {
 
             override fun onUnauthorized(errorNumber: Int) {
             }
-
         })
     }
 }

@@ -23,7 +23,7 @@ class WriteUploadPrecription : AppCompatActivity() {
 
         setSupportActionBar(toolbarr)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Upload Prescription"
+        supportActionBar!!.title = "Type Items"
 
         toolbarr.setNavigationOnClickListener {
             finish()

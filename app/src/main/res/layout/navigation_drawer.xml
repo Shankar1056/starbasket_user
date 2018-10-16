@@ -31,6 +31,22 @@
             android:text="9663379596"
             android:textColor="@color/grey_750"
             android:textSize="@dimen/text_small"/>
+        <TextView
+            android:id="@+id/tv_name"
+            fontPath="@string/font_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_200"
+            android:drawablePadding="@dimen/standard"
+            android:drawableStart="@drawable/ic_profile_orange_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="bottom"
+            android:paddingBottom="@dimen/standard"
+            android:paddingEnd="@dimen/medium"
+            android:paddingStart="@dimen/medium"
+            android:text="Shankar Kumar"
+            android:textColor="@color/grey_750"
+            android:textSize="@dimen/text_small"/>
 
         <TextView
             fontPath="@string/font_medium"

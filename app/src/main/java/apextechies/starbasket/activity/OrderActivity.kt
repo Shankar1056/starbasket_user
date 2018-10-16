@@ -82,6 +82,9 @@ class OrderActivity : AppCompatActivity(), OrderAdapter.OnItemClickListener, Pre
         toolbarr.setNavigationOnClickListener {
             finish()
         }
+
+        btn_home.setOnClickListener {
+            startActivity(Intent(this@OrderActivity, MainActivity::class.java)) }
     }
 
     private fun getPrescription() {

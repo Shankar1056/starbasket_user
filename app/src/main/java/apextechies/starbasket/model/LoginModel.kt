@@ -18,6 +18,8 @@ class LoginDataModel {
 var id: String?= null
     @SerializedName("name")
 var name: String?= null
+    @SerializedName("last_name")
+var last_name: String?= null
     @SerializedName("email")
 var email: String?= null
     @SerializedName("mobile")

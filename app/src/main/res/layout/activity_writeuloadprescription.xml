@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:text="Write your kitchen prescription below in the box"
+        android:text="Write or Upload your Items"
         android:layout_margin="10dp"
         android:fontFamily="@font/celias_medium"/>
 
@@ -50,7 +50,7 @@
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:padding="@dimen/standard"
-            android:text="@string/submit"
+            android:text="@string/ordernow"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/text_medium"/>

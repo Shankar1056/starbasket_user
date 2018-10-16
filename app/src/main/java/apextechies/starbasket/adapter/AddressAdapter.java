@@ -115,7 +115,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 					break;
 				
 				default:
-					mListener.onUpdate(mItemList.get(getAdapterPosition()), getAdapterPosition());
+					//mListener.onUpdate(mItemList.get(getAdapterPosition()), getAdapterPosition());
 			}
 		}
 	}

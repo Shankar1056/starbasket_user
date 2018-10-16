@@ -45,6 +45,7 @@ class CheckoutActivity: AppCompatActivity(), PaymentResultWithDataListener {
         retrofitDataProvider = RetrofitDataProvider(this)
         tv_label_address.setOnClickListener {
             val intent = Intent(this, AddressActivity::class.java)
+                    .putExtra("from", "checkout")
             startActivityForResult(intent, RC_ADDRESS)
 
 

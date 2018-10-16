@@ -69,7 +69,8 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
         nav_my_addresses.setOnClickListener {
-            startActivity(Intent(this@MainActivity, AddressActivity::class.java))
+            startActivity(Intent(this@MainActivity, AddressActivity::class.java)
+                    .putExtra("from", "main"))
         }
         nav_share.setOnClickListener {
             val sharingIntent = Intent(Intent.ACTION_SEND)
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             startActivity(Intent.createChooser(sharingIntent, "Share using"))
         }
         nav_logout.setOnClickListener {
+            ClsGeneral.setBoolean(this, "islogout", true)
             ClsGeneral.setPreferences(this, AppConstants.USERID, "")
             startActivity(Intent(this@MainActivity, SplashScreen::class.java))
             finishAffinity()
@@ -97,6 +99,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         }
 
         tv_mobile.text = ClsGeneral.getStrPreferences(this, AppConstants.MOBILE)
+        tv_name.text = ClsGeneral.getStrPreferences(this, AppConstants.USERNAME) +""+ClsGeneral.getStrPreferences(this, AppConstants.USERLASTNAME)
 
     }
 

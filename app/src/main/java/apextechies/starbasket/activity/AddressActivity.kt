@@ -15,6 +15,7 @@ import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
 import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_address.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, AddressAdapter.OnItemClickListener {
     private var mAdapter: AddressAdapter? = null
@@ -24,10 +25,18 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
+        setSupportActionBar(toolbarr)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "Select Your Address"
         retrofitDataProvider = RetrofitDataProvider(this)
         mAdapter = AddressAdapter(this)
         rv_address.layoutManager = LinearLayoutManager(this)
         rv_address.adapter = mAdapter
+
+        if (intent.getStringExtra("from").equals("main")){
+            tv_proceed_to_pay.text = "Submit"
+        }
+
         fab_add.setOnClickListener {
             val dialog = AddressDialog.newInstance(AddressDataModel(), -1)
             dialog.show(supportFragmentManager, null)
@@ -56,6 +65,10 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
             override fun onUnauthorized(errorNumber: Int) {
             }
         })
+
+        toolbarr.setNavigationOnClickListener {
+            finish()
+        }
     }
 
 

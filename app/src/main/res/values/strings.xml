@@ -78,7 +78,8 @@
     <string name="error_email">Invalid Email</string>
     <string name="authenticating">Authenticating…</string>
     <string name="verifying">Verifying…</string>
-    <string name="signing_up">Creating account</string>
+    <string name="signing_up">Create an Account</string>
+    <string name="signingup">Create Account</string>
     <string name="logged_in_successfully">Logged in successfully</string>
     <string name="total_amount">Total Amount</string>
     <string name="updating_cart">Updating cart…</string>
@@ -128,14 +129,19 @@
     <string name="something_went_wrong_error_message">Something went wrong</string>
     <string name="hint_email_phone">Enter Email or Mobile</string>
     <string name="hint_password">Enter Password</string>
-    <string name="forgotpassword">Forgot Password</string>
+    <string name="forgotpassword">Forgot Password?</string>
     <string name="donthaveaccount">Don\'t have an account?</string>
     <string name="hint_phone">Enter Moile Number</string>
-    <string name="hint_name">Enter your name</string>
-    <string name="hint_email">Ener email id</string>
+    <string name="hint_name">Enter your Name</string>
+    <string name="hint_email">Ener Email Id</string>
     <string name="hint_emailid">Enter rgistered email id</string>
     <string name="hint_otp">Enter OTP sent to your email id</string>
     <string name="hint_newpassword">Enter new password</string>
     <string name="pleaewait">Please wait...</string>
     <string name="otpsentmessage">An OTP has sent to your email id, please enter correct otp to reset your password. \nThank you.</string>
+    <string name="login">Login</string>
+    <string name="ordernow">Place Order</string>
+    <string name="hint_confirmpassword">Confirm Password</string>
+    <string name="hint_firstname">Enter First Name</string>
+    <string name="hint_lastname">Enter Last Name</string>
 </resources>

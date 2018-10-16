@@ -33,7 +33,7 @@ public interface ServiceMethods {
     void addUpdateAddress(String user_id, String address_id, String state_id, String pincode, String address1, String address2, String nme, String city, String landmark, DownlodableCallback<AddressModel> callback);
     void deleteAddress(String address_id, DownlodableCallback<AddressModel> callback);
     void userLogin(String email, String mobile,  String password, DownlodableCallback<LoginModel> callback);
-    void userSignup(String name, String email,  String password, String mobile, String address, String device_token, DownlodableCallback<LoginModel> callback);
+    void userSignup(String name, String lastname, String email,  String password, String mobile, String address, String device_token, DownlodableCallback<LoginModel> callback);
     void paymant(CheckoutModel checkoutModel , DownlodableCallback<CommonModel> callback);
     void userOrderList(String user_id , DownlodableCallback<UserOrderListModel> callback);
     void insertPrescription(String user_id , String prescription , DownlodableCallback<CommonModel> callback);
