@@ -23,7 +23,7 @@ class WriteUploadPrecription : AppCompatActivity() {
 
         setSupportActionBar(toolbarr)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Type Items"
+        supportActionBar!!.title = "SMARTLIST"
 
         toolbarr.setNavigationOnClickListener {
             finish()
@@ -36,6 +36,10 @@ class WriteUploadPrecription : AppCompatActivity() {
             else{
                 saveData()
             }
+        }
+
+        tv_uploadpic.setOnClickListener {
+
         }
     }
 

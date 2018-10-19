@@ -21,6 +21,8 @@ val data: ArrayList<CategoryDataModel>?= null
     val name: String?= null,
     @SerializedName("icon")
     val icon: String?= null,
+    @SerializedName("status")
+    val status: String?= null,
     @SerializedName("subcat")
     val subcat: ArrayList<CategorysSubcatModel>?= null
 ): Parcelable
@@ -33,6 +35,8 @@ data class CategorysSubcatModel(
     val cat_id: String?= null,
     @SerializedName("name")
     val name: String?= null,
+    @SerializedName("status")
+    val status: String?= null,
     @SerializedName("icon")
     val icon: String?= null
 ): Parcelable

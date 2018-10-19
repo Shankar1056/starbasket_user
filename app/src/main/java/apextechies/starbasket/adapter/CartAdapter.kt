@@ -93,6 +93,7 @@ class CartAdapter (private val mListener: OnCartListener) : RecyclerView.Adapter
                 }
 
                 R.id.tv_dec_quantity -> {
+
                     item.quantity = (Integer.parseInt(item.quantity) - 1).toString()
                     mListener.onCartUpdate(item)
                 }

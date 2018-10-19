@@ -33,7 +33,7 @@ class CategoryFragment(private  val sub_cat_id: String, private val id: String) 
     override fun onItemClick(item: ArrayList<ProductDataModel>, pos: Int) {
         val intent = Intent(context, ProductDetailsActivity::class.java)
         intent.putExtra("list", item)
-        intent.putExtra("hashcart", "no")
+        intent.putExtra("pos", pos)
         intent.putExtra("hashcart", "no")
         startActivity(intent)
     }

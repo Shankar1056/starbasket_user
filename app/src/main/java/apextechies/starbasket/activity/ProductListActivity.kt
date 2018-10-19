@@ -62,9 +62,11 @@ class ProductListActivity: AppCompatActivity(), CategoryFragment.OnProductListen
             override fun onSuccess(result: SubSubCategory?) {
                 for (i in 0 until result!!.data!!.size) {
 
-                    val fView = CategoryFragment(result.data!![i].sub_cat_id!!, result.data!![i].id!!)
-                    mAdapter!!.addItem(fView, result.data!![i].name!!)
+                    if (result.data!![i].status.equals("1")) {
+                        val fView = CategoryFragment(result.data!![i].sub_cat_id!!, result.data!![i].id!!)
+                        mAdapter!!.addItem(fView, result.data!![i].name!!)
 
+                    }
                 }
 
             }

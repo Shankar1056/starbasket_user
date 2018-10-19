@@ -35,7 +35,7 @@ class ProductDataModel(
         @SerializedName("unitdetails")
         val unitdetails: ArrayList<UnitDetailsModel>? = null,
         @SerializedName("sellerdetails")
-        val sellerdetails: ArrayList<SellerDetailsModel>? = null
+        val sellerdetails: SellerDetailsModel? = null
 ) : Parcelable
 
 @Parcelize

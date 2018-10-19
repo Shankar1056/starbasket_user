@@ -40,5 +40,6 @@ public interface ServiceMethods {
     void forgotPassword(String email_id, String otp, String password, String operation, DownlodableCallback<CommonModel> callback);
     void getPrescription(String user_id, DownlodableCallback<PrescriptionModel> callback);
     void cancelOrder(String transaction_id, DownlodableCallback<CommonModel> callback);
+    void getSearchedProduct(String prod_name, DownlodableCallback<ProductModel> callback);
 
 }

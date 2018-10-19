@@ -78,13 +78,15 @@ import java.util.ArrayList
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = mItemList[position]
 
-            holder.titleTV.text = item.name
-            if (!TextUtils.isEmpty(item.icon))
-            Picasso.with(holder.itemView.context)
-                    .load(ApiUrl.IMAGE_BASE_URL+item.icon)
-                    .fit()
-                    .centerInside()
-                    .into(holder.imageIV)
+            if (item.status.equals("1")) {
+                holder.titleTV.text = item.name
+                if (!TextUtils.isEmpty(item.icon))
+                    Picasso.with(holder.itemView.context)
+                            .load(ApiUrl.IMAGE_BASE_URL + item.icon)
+                            .fit()
+                            .centerInside()
+                            .into(holder.imageIV)
+            }
         }
 
         override fun getItemCount(): Int {
@@ -97,9 +99,11 @@ import java.util.ArrayList
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
 
-        holder.titleTV.text = item.name
-        holder.mAdapter = GroupAdapter(item.subcat!!)
-        holder.groupRV.adapter = holder.mAdapter
+        if (item.status.equals("1")) {
+            holder.titleTV.text = item.name
+            holder.mAdapter = GroupAdapter(item.subcat!!)
+            holder.groupRV.adapter = holder.mAdapter
+        }
     }
 
 

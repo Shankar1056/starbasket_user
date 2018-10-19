@@ -93,8 +93,10 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
 
     fun addItem(item: ProductDataModel) {
         mItemList.add(item)
-        notifyItemInserted(mItemList.size - 1)
+            notifyItemInserted(mItemList.size - 1)
+
     }
+
     fun addCart(item: CartDataModel, pos: Int) {
         mCartList.add(item)
 //        notifyItemInserted(mCartList.size - 1)

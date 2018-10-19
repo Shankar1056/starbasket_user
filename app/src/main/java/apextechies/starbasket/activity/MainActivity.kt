@@ -1,6 +1,7 @@
 package apextechies.starbasket.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.nfc.NfcAdapter.EXTRA_DATA
 import android.support.v7.app.AppCompatActivity
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.navigation_drawer.*
 import android.text.Html
+import android.view.Gravity
+import android.widget.TextView
 import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.model.*
 import apextechies.starbasketseller.common.AppConstants
@@ -66,13 +69,18 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         gethomeCategory()
 
         nav_my_cart.setOnClickListener {
+            changebackcolor(nav_my_cart)
+            drawer_layout.closeDrawer(Gravity.LEFT)
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
         nav_my_addresses.setOnClickListener {
+            changebackcolor(nav_my_addresses)
+            drawer_layout.closeDrawer(Gravity.LEFT)
             startActivity(Intent(this@MainActivity, AddressActivity::class.java)
                     .putExtra("from", "main"))
         }
         nav_share.setOnClickListener {
+            drawer_layout.closeDrawer(Gravity.LEFT)
             val sharingIntent = Intent(Intent.ACTION_SEND)
             sharingIntent.type = "text/html"
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("play store link"))
@@ -85,10 +93,13 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
             finishAffinity()
         }
         nav_my_orders.setOnClickListener {
+            changebackcolor(nav_my_orders)
+            drawer_layout.closeDrawer(Gravity.LEFT)
             startActivity(Intent(this@MainActivity, OrderActivity::class.java))
         }
 
         cartLL.setOnClickListener {
+            drawer_layout.closeDrawer(Gravity.LEFT)
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
         action_cart.setOnClickListener {
@@ -100,6 +111,18 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
 
         tv_mobile.text = ClsGeneral.getStrPreferences(this, AppConstants.MOBILE)
         tv_name.text = ClsGeneral.getStrPreferences(this, AppConstants.USERNAME) +""+ClsGeneral.getStrPreferences(this, AppConstants.USERLASTNAME)
+
+        et_search.setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun changebackcolor(nav: TextView?) {
+        nav_my_cart.setBackgroundColor(Color.TRANSPARENT)
+        nav_my_addresses.setBackgroundColor(Color.TRANSPARENT)
+        nav_my_orders.setBackgroundColor(Color.TRANSPARENT)
+        nav!!.setBackgroundColor(resources.getColor(R.color.drawer_back_color))
 
     }
 
@@ -142,6 +165,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         retrofitDataProvider!!.cartItem( ClsGeneral.getStrPreferences(this, AppConstants.USERID),object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 tv_notif_count.text = result!!.data!!.size.toString()
+                ClsGeneral.setPreferences(this@MainActivity, AppConstants.CARTCOUNT, result!!.data!!.size.toString())
             }
 
             override fun onFailure(error: String?) {
@@ -156,6 +180,11 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
     override fun onStop() {
         super.onStop()
         mBannerHandler!!.removeCallbacks(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        tv_notif_count.text = ClsGeneral.getStrPreferences(this, AppConstants.CARTCOUNT)
     }
 
     override fun run() {

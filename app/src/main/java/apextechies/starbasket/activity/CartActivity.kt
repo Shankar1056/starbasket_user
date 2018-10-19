@@ -85,6 +85,7 @@ class CartActivity: AppCompatActivity(), OnCartListener {
 
             ll_empty.visibility = View.GONE
             ll_content.visibility = View.VISIBLE
+            ClsGeneral.setPreferences(this@CartActivity, AppConstants.CARTCOUNT, result!!.data!!.size.toString())
             getTotalPrice(result.data)
         }
         else{
@@ -103,6 +104,7 @@ class CartActivity: AppCompatActivity(), OnCartListener {
     }
 
     override fun onCartUpdate(item: CartDataModel?) {
+        if (item!!.quantity.equals("0"))
         retrofitDataProvider!!.addUpdaDteCart(ClsGeneral.getStrPreferences(this, AppConstants.USERID), item!!.product_id, item.quantity, item.name, item.price,"1", item.varient, item.seller_id,object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 getCartItem()

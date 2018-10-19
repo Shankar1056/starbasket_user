@@ -1,12 +1,15 @@
 package apextechies.starbasket.adapter;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -14,18 +17,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import apextechies.starbasket.R;
+import apextechies.starbasket.activity.MainActivity;
+import apextechies.starbasket.common.ClsGeneral;
 import apextechies.starbasket.model.AddressDataModel;
 import apextechies.starbasket.model.AddressModel;
+import apextechies.starbasketseller.common.AppConstants;
 
-/**
- * @author Samuel Robert <samuelrbrt16@gmail.com>
- * @created on 18 Mar 2017 at 4:46 PM
- */
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
 	private final ArrayList<AddressDataModel> mItemList = new ArrayList<>();
 	private final OnItemClickListener mListener;
 	private int mSelectedPosition = 0;
+	private Context context;
 	
 	public AddressAdapter(OnItemClickListener listener) {
 		mListener = listener;
@@ -42,6 +45,9 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 		AddressDataModel item = mItemList.get(position);
 		holder.chosenRB.setChecked(mSelectedPosition == position);
 		holder.addressTV.setText(item.getAddress1());
+		holder.tv_username.setText(item.getName());
+		String a = ClsGeneral.getStrPreferences(context, AppConstants.INSTANCE.getMOBILE());
+		holder.tv_mobile.setText(ClsGeneral.getStrPreferences(context, AppConstants.INSTANCE.getMOBILE()));
 	}
 	
 	@Override
@@ -49,8 +55,9 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 		return mItemList.size();
 	}
 	
-	public void addItem(AddressDataModel item) {
+	public void addItem(AddressDataModel item,Context context ) {
 		mItemList.add(item);
+		this.context = context;
 		notifyItemInserted(mItemList.size() - 1);
 	}
 	
@@ -71,13 +78,14 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 	
 	public interface OnItemClickListener {
 		void onUpdate(AddressDataModel item, int position);
-		
 		void onDelete(AddressDataModel item, int position);
 	}
 	
 	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 		private final RadioButton chosenRB;
 		private final TextView addressTV;
+		private final TextView tv_username;
+		private final TextView tv_mobile;
 		private final ImageView deleteIV;
 		
 		ViewHolder(View itemView) {
@@ -85,6 +93,8 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 			
 			chosenRB = (RadioButton) itemView.findViewById(R.id.rb_address);
 			addressTV = (TextView) itemView.findViewById(R.id.tv_address);
+			tv_username = (TextView) itemView.findViewById(R.id.tv_username);
+			tv_mobile = (TextView) itemView.findViewById(R.id.tv_mobile);
 			deleteIV = (ImageView) itemView.findViewById(R.id.iv_delete);
 			chosenRB.setOnClickListener(this);
 			deleteIV.setOnClickListener(this);
@@ -100,7 +110,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 					break;
 				
 				case R.id.iv_delete:
-					new AlertDialog.Builder(itemView.getContext())
+					/*new AlertDialog.Builder(itemView.getContext())
 						.setTitle(R.string.title_delete_address)
 						.setMessage(R.string.delete_address)
 						.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
@@ -111,7 +121,22 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 						})
 						.setNegativeButton(android.R.string.cancel, null)
 						.create()
-						.show();
+						.show();*/
+					PopupMenu popup = new PopupMenu(context,v);
+					popup.getMenuInflater().inflate(R.menu.popup_menu,popup.getMenu());
+					popup.show();
+					popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+						@Override
+						public boolean onMenuItemClick(MenuItem item) {
+							int id = item.getItemId();
+							if(id==R.id.action_edit){
+								//show_toast("Install Clicked");
+							}else if(id==R.id.action_delete){
+								mListener.onDelete(mItemList.get(getAdapterPosition()), getAdapterPosition());
+							}
+							return true;
+						}
+					});
 					break;
 				
 				default:

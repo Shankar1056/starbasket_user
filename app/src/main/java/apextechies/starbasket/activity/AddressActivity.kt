@@ -53,7 +53,7 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
             override fun onSuccess(result: AddressModel?) {
                 if (result!!.data!!.size>0){
                 for (i in 0 until result!!.data!!.size) {
-                    mAdapter!!.addItem(result.data!![i])
+                    mAdapter!!.addItem(result.data!![i], this@AddressActivity)
                 }
                     tv_empty.setVisibility(View.GONE)
                 } else {
@@ -78,6 +78,7 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
             override fun onSuccess(result: AddressModel?) {
 
                 if (mAdapter!!.getItemCount() === 0) {
+                    tv_empty.setVisibility(View.VISIBLE)
                 }
             }
 
@@ -104,7 +105,8 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
             override fun onSuccess(result: AddressModel?) {
                 for (i in 0 until result!!.data!!.size) {
                     if (result != null) {
-                        mAdapter!!.addItem(result.data!![0])
+                        tv_empty.setVisibility(View.GONE)
+                        mAdapter!!.addItem(result.data!![0], this@AddressActivity)
                     }
                 }
             }

@@ -19,4 +19,6 @@ val id: String?= null
 val sub_cat_id: String?= null
     @SerializedName("name")
 val name: String?= null
+    @SerializedName("status")
+val status: String?= null
 }

@@ -26,4 +26,5 @@ public class ApiUrl {
     public static final String INSERTPRESCRIPTION = "insert_prescription";
     public static final String GETPRESCRIPTION = "get_prescription";
     public static final String CANCELORDER = "cancel_ordr";
+    public static final String SEARCHESPRODUCT = "get_searched_product_list";
 }

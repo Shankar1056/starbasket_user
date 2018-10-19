@@ -106,4 +106,8 @@ public interface ApiRetrofitService {
     @FormUrlEncoded
     Call<CommonModel> cancelOrder(@Field("transaction_id") String user_id);
 
+    @POST(ApiUrl.SEARCHESPRODUCT)
+    @FormUrlEncoded
+    Call<ProductModel> getSearchedProduct(@Field("prod_name") String sub_cat_id);
+
 }

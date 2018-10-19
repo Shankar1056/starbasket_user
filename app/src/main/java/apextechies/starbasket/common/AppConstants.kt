@@ -14,4 +14,5 @@ object AppConstants {
     var USEREMAIL = "user_email"
     var USEREADRESS = "user_address"
     var MOBILE = "user_mobile"
+    var CARTCOUNT = "cart_count"
 }

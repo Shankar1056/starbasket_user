@@ -40,7 +40,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentEnd="true"
-			android:layout_below="@id/rv_address"
+			android:layout_above="@id/tv_proceed_to_pay"
 			android:layout_margin="@dimen/standard"
 			android:src="@drawable/ic_add_white_24dp"/>
 

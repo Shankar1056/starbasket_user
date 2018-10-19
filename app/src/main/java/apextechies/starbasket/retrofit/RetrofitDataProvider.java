@@ -676,6 +676,37 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
         );
     }
 
+    @Override
+    public void getSearchedProduct(String prod_name, final DownlodableCallback<ProductModel> callback) {
+        createRetrofitService().getSearchedProduct(prod_name).enqueue(
+                new Callback<ProductModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<ProductModel> call, @NonNull final Response<ProductModel> response) {
+
+                        if (response.isSuccessful()) {
+                            ProductModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<ProductModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
 
    /* @Override
     public void notification(String school_id, final DownlodableCallback<NotificationModel> callback) {
