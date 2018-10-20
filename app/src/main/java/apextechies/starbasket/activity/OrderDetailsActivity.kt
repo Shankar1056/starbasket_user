@@ -1,7 +1,9 @@
 package apextechies.starbasket.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 
 
@@ -47,11 +49,27 @@ class OrderDetailsActivity : AppCompatActivity() {
         }
 
         tv_cancel.setOnClickListener {
-            val strng = mOrder!!.transaction_id!!.replace("#", "")
-            cancelOrder(strng)
-        }
-    }
 
+            showDilog(mOrder!!.transaction_id!!.replace("#", ""))
+        }
+
+        date.text = mOrder.order_date
+    }
+    private fun showDilog(item: String) {
+        val builder = AlertDialog.Builder(this)
+
+        if (title != null) builder.setTitle(title)
+
+        builder.setMessage("Are you sure you want to delete this item from your cart?")
+        builder.setPositiveButton("OK", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                cancelOrder(item)
+            }
+
+        })
+        builder.setNegativeButton("Cancel", null)
+        builder.show()
+    }
     private fun cancelOrder(transaction_id: String?) {
 
         retrofitDataProvider!!.cancelOrder(transaction_id, object : DownlodableCallback<CommonModel> {

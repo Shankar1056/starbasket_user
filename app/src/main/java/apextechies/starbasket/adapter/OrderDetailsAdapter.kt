@@ -33,7 +33,7 @@ class OrderDetailsAdapter : RecyclerView.Adapter<OrderDetailsAdapter.ViewHolder>
         holder.titleTV.text = item.product_name
         holder.quantityTV.text = "Quantity " + item.quantity!!
         holder.priceTV.text = "₹ " + item.price!!
-        holder.varent.text = "₹ " + item.varient!!
+        holder.varent.text = item.varient!!
 
         if (item.image!!.toString().trim { it <= ' ' }.length > 0) {
             Picasso.with(context)
