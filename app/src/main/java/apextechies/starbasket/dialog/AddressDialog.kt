@@ -1,5 +1,6 @@
 package apextechies.starbasket.dialog
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.view.Gravity
@@ -17,9 +18,11 @@ import apextechies.starbasket.model.StateModel
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
 import kotlinx.android.synthetic.main.dialog_address.*
+import kotlinx.android.synthetic.main.dialog_address.view.*
 
 
-class AddressDialog : DialogFragment(), View.OnClickListener {
+@SuppressLint("ValidFragment")
+class AddressDialog(private val addrss: AddressDataModel, private val position: Int) : DialogFragment(), View.OnClickListener {
     var retrofitDataProvider: RetrofitDataProvider?= null
 
     private val stateList = ArrayList<StateDataModel>()
@@ -107,6 +110,14 @@ class AddressDialog : DialogFragment(), View.OnClickListener {
         dialog.window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         dialog.window!!.setGravity(Gravity.BOTTOM)
 
+        view.et_name.setText(addrss.name)
+        view.et_address1.setText(addrss.address1)
+        view.et_address2.setText(addrss.address2)
+        view.et_landmark.setText(addrss.landmark)
+        view.et_city.setText(addrss.city)
+        view.et_pincode.setText(addrss.pincode)
+        //view.stateList[position].name
+
 
     retrofitDataProvider!!.stateList(object : DownlodableCallback<StateModel> {
     override fun onSuccess(result: StateModel?) {
@@ -170,7 +181,7 @@ class AddressDialog : DialogFragment(), View.OnClickListener {
             val args = Bundle()
             args.putParcelable(ARG_ADDRESS, address)
             args.putInt(ARG_POSITION, position)
-            val fragment = AddressDialog()
+            val fragment = AddressDialog(address, position)
             fragment.arguments = args
             return fragment
         }

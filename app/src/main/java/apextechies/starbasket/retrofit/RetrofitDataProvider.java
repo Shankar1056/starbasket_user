@@ -19,6 +19,7 @@ import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.PrescriptionModel;
+import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -182,7 +183,7 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
     @Override
     public void productList(String sub_cat_id, String sub_sub_cat_id, final DownlodableCallback<ProductModel> callback) {
-        createRetrofitService().getProduct(sub_cat_id,sub_sub_cat_id).enqueue(
+        createRetrofitService().getProduct(sub_cat_id, sub_sub_cat_id).enqueue(
                 new Callback<ProductModel>() {
                     @Override
                     public void onResponse(@NonNull Call<ProductModel> call, @NonNull final Response<ProductModel> response) {
@@ -244,7 +245,7 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
     @Override
     public void addUpdaDteCart(String user_id, String product_id, String quantity, String name, String price, String image, String unit, String seller_id, final DownlodableCallback<CartModel> callback) {
-        createRetrofitService().addUpdateCart(user_id,product_id, quantity, name, price,image, unit, seller_id).enqueue(
+        createRetrofitService().addUpdateCart(user_id, product_id, quantity, name, price, image, unit, seller_id).enqueue(
                 new Callback<CartModel>() {
                     @Override
                     public void onResponse(@NonNull Call<CartModel> call, @NonNull final Response<CartModel> response) {
@@ -585,7 +586,7 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
     @Override
     public void forgotPassword(String email_id, String otp, String password, String operation, final DownlodableCallback<CommonModel> callback) {
-        createRetrofitService().forgotPassword(email_id, otp, password,operation).enqueue(
+        createRetrofitService().forgotPassword(email_id, otp, password, operation).enqueue(
                 new Callback<CommonModel>() {
                     @Override
                     public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
@@ -699,6 +700,68 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<ProductModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void getProductGradient(String prod_id, final DownlodableCallback<ProductGradientModel> callback) {
+        createRetrofitService().getProductGradient(prod_id).enqueue(
+                new Callback<ProductGradientModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<ProductGradientModel> call, @NonNull final Response<ProductGradientModel> response) {
+
+                        if (response.isSuccessful()) {
+                            ProductGradientModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<ProductGradientModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void changePassord(String email, String mobile, String password, String newpassword, final DownlodableCallback<CommonModel> callback) {
+        createRetrofitService().changePassword(email, mobile, password, newpassword).enqueue(
+                new Callback<CommonModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<CommonModel> call, @NonNull final Response<CommonModel> response) {
+
+                        if (response.isSuccessful()) {
+                            CommonModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

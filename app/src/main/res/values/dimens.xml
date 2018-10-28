@@ -11,7 +11,7 @@
 	<dimen name="large">48dp</dimen>
 	<dimen name="big">36dp</dimen>
 	<dimen name="text_normal">14sp</dimen>
-	<dimen name="xxlarge">64dp</dimen>
+	<dimen name="xxlarge">60dp</dimen>
 	<dimen name="text_big">18sp</dimen>
 	<dimen name="text_medium">16sp</dimen>
 	<dimen name="tiny">2dp</dimen>

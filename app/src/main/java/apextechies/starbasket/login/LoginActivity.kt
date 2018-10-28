@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         }
 
         forgotpassword.setOnClickListener {
-            //            startActivity(Intent(this, ForgotPassword::clas.java))
+                        startActivity(Intent(this, ForgotPassword::class.java))
         }
 
         signup.setOnClickListener {
@@ -90,6 +90,12 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         }
 
         gplus_sign_in.setOnClickListener {
+            ClsGeneral.setBoolean(this, "islogout", false)
+            val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
+
+        imageView2.setOnClickListener {
             ClsGeneral.setBoolean(this, "islogout", false)
             val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
             startActivityForResult(signInIntent, RC_SIGN_IN)
@@ -204,9 +210,11 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     }
 
     private fun callLoginApi(email: String, moble: String, password: String) {
+        Utilz.showDailog(this, resources.getString(R.string.pleaewait))
         retrofitDataProvider!!.userLogin(email, moble, password, object : DownlodableCallback<LoginModel> {
             override fun onSuccess(result: LoginModel?) {
 
+                Utilz.dismissProgressDialog()
                 if (result!!.status.equals("true")) {
                     if (result.data!![0].status.equals("1")) {
                         ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERID, result.data!![0].id)
@@ -223,9 +231,9 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
                 }
             }
 
-            override fun onFailure(error: String?) {}
+            override fun onFailure(error: String?) {Utilz.dismissProgressDialog()}
 
-            override fun onUnauthorized(errorNumber: Int) {}
+            override fun onUnauthorized(errorNumber: Int) {Utilz.dismissProgressDialog()}
         })
     }
 

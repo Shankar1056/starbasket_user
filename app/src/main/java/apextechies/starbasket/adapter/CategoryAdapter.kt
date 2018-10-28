@@ -25,7 +25,6 @@ public class CategoryAdapter(private val mListener: OnItemClickListener, private
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = catlist[position]
 
-        if (item.status.equals("1")) {
             holder.titleTV.text = item.name
             if (!TextUtils.isEmpty(item.icon))
                 Picasso.with(holder.itemView.context)
@@ -33,7 +32,6 @@ public class CategoryAdapter(private val mListener: OnItemClickListener, private
                         .fit()
                         .centerCrop()
                         .into(holder.imageIV)
-        }
     }
 
     override fun getItemCount(): Int {

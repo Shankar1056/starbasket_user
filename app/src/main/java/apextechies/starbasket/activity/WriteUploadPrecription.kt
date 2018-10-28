@@ -1,7 +1,9 @@
 package apextechies.starbasket.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
 import apextechies.starbasket.R
 import apextechies.starbasket.common.ClsGeneral
@@ -40,6 +42,11 @@ class WriteUploadPrecription : AppCompatActivity() {
 
         tv_uploadpic.setOnClickListener {
 
+        }
+
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@WriteUploadPrecription, SearchActivity::class.java))
         }
     }
 

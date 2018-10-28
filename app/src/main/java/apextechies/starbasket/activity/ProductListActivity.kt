@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.R.string.name
 import apextechies.starbasket.adapter.CartAdapter
@@ -46,6 +47,11 @@ class ProductListActivity: AppCompatActivity(), CategoryFragment.OnProductListen
                 vp_list)
 
         getSubSubCat(intent.getStringExtra("id"))
+
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@ProductListActivity, SearchActivity::class.java))
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

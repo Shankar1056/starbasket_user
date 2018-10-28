@@ -130,7 +130,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 						public boolean onMenuItemClick(MenuItem item) {
 							int id = item.getItemId();
 							if(id==R.id.action_edit){
-								//show_toast("Install Clicked");
+								mListener.onUpdate(mItemList.get(getAdapterPosition()), getAdapterPosition());
 							}else if(id==R.id.action_delete){
 								mListener.onDelete(mItemList.get(getAdapterPosition()), getAdapterPosition());
 							}

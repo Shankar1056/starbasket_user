@@ -2,37 +2,35 @@ package apextechies.starbasket.activity
 
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.nfc.NfcAdapter.EXTRA_DATA
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
+import android.view.Gravity
+import android.widget.TextView
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.CategoryAdapter
 import apextechies.starbasket.adapter.SubCategoryAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
+import apextechies.starbasket.common.ClsGeneral
 import apextechies.starbasket.fragment.ImageFragment
+import apextechies.starbasket.login.ChangePassword
+import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
+import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.cart_item_count.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.navigation_drawer.*
-import android.text.Html
-import android.view.Gravity
-import android.widget.TextView
-import apextechies.starbasket.common.ClsGeneral
-import apextechies.starbasket.model.*
-import apextechies.starbasketseller.common.AppConstants
-import com.google.android.gms.wallet.Cart
-import kotlinx.android.synthetic.main.activity_splash.*
-import kotlinx.android.synthetic.main.cart_item_count.*
 
 
-class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickListener, SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
+class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, SubCategoryAdapter.OnItemClickListener, ViewPager.OnPageChangeListener {
 
     private var isAscending = true
     private var userScrollChange = false
@@ -41,7 +39,6 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
     private var mAdapter: ViewPagerAdapter? = null
     private var retrofitDataProvider: RetrofitDataProvider? = null
 
-    private var mBannerHandler: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -59,7 +56,6 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         vp_banner.setScrollDurationFactor(3.0)
         vp_banner.setAdapter(mAdapter)
         vp_banner.addOnPageChangeListener(this)
-        mBannerHandler = Handler()
 
         rv_category.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_subcategory.isNestedScrollingEnabled = false
@@ -67,6 +63,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
 
         getBanner()
         gethomeCategory()
+        slideViewPager()
 
         nav_my_cart.setOnClickListener {
             changebackcolor(nav_my_cart)
@@ -108,15 +105,64 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         uploadPres.setOnClickListener {
             startActivity(Intent(this@MainActivity, WriteUploadPrecription::class.java))
         }
+        changePassword.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ChangePassword::class.java))
+        }
 
         tv_mobile.text = ClsGeneral.getStrPreferences(this, AppConstants.MOBILE)
-        tv_name.text = ClsGeneral.getStrPreferences(this, AppConstants.USERNAME) +""+ClsGeneral.getStrPreferences(this, AppConstants.USERLASTNAME)
+        tv_name.text = ClsGeneral.getStrPreferences(this, AppConstants.USERNAME) + "" + ClsGeneral.getStrPreferences(this, AppConstants.USERLASTNAME)
 
         et_search.setOnClickListener {
             startActivity(Intent(this, SearchActivity::class.java))
-            finish()
         }
     }
+
+    private fun slideViewPager() {
+
+        val handler = Handler()
+        val delay = 2000 //milliseconds
+
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                val nextPos: Int
+
+                if (isAscending) {
+                    nextPos = (vp_banner.getCurrentItem() + 1) % mAdapter!!.getCount()
+                    isAscending = nextPos < mAdapter!!.getCount() - 1
+                } else {
+                    nextPos = (vp_banner.getCurrentItem() - 1) % mAdapter!!.getCount()
+                    isAscending = nextPos < 1
+                }
+
+                vp_banner.setCurrentItem(nextPos, true)
+                handler.postDelayed(this, delay.toLong())
+            }
+        }, delay.toLong())
+        /*var handler = Handler()
+
+        object : Runnable {
+            override fun run() {
+                try {
+                    val nextPos: Int
+
+                    if (isAscending) {
+                        nextPos = (vp_banner.getCurrentItem() + 1) % mAdapter!!.getCount()
+                        isAscending = nextPos < mAdapter!!.getCount() - 1
+                    } else {
+                        nextPos = (vp_banner.getCurrentItem() - 1) % mAdapter!!.getCount()
+                        isAscending = nextPos < 1
+                    }
+
+                    vp_banner.setCurrentItem(nextPos, true)
+                } catch (e: ArithmeticException) {
+                }
+
+                handler.postDelayed(this, 1000)
+            }
+        }*/
+
+    }
+
 
     private fun changebackcolor(nav: TextView?) {
         nav_my_cart.setBackgroundColor(Color.TRANSPARENT)
@@ -144,10 +190,17 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
     }
 
     private fun gethomeCategory() {
+        var list = ArrayList<CategoryDataModel>()
         retrofitDataProvider!!.category(object : DownlodableCallback<CategoryModel> {
             override fun onSuccess(result: CategoryModel?) {
-                rv_category.adapter = CategoryAdapter(this@MainActivity, result!!.data!!)
-                rv_subcategory.adapter = SubCategoryAdapter(this@MainActivity, result!!.data!!)
+                for (i in 0 until result!!.data!!.size) {
+                    if (result.data!![i].status.equals("1"))
+                        list.add(CategoryDataModel(result.data!![i].id, result.data!![i].name, result.data!![i].icon, result.data!![i].status, result.data!![i].subcat))
+                }
+                if (list.size > 0) {
+                    rv_category.adapter = CategoryAdapter(this@MainActivity, list)
+                    rv_subcategory.adapter = SubCategoryAdapter(this@MainActivity, list)
+                }
 
                 getCartItem()
             }
@@ -162,7 +215,7 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
     }
 
     private fun getCartItem() {
-        retrofitDataProvider!!.cartItem( ClsGeneral.getStrPreferences(this, AppConstants.USERID),object : DownlodableCallback<CartModel> {
+        retrofitDataProvider!!.cartItem(ClsGeneral.getStrPreferences(this, AppConstants.USERID), object : DownlodableCallback<CartModel> {
             override fun onSuccess(result: CartModel?) {
                 tv_notif_count.text = result!!.data!!.size.toString()
                 ClsGeneral.setPreferences(this@MainActivity, AppConstants.CARTCOUNT, result!!.data!!.size.toString())
@@ -177,35 +230,12 @@ class MainActivity : AppCompatActivity(), Runnable, CategoryAdapter.OnItemClickL
         })
     }
 
-    override fun onStop() {
-        super.onStop()
-        mBannerHandler!!.removeCallbacks(this)
-    }
 
     override fun onResume() {
         super.onResume()
         tv_notif_count.text = ClsGeneral.getStrPreferences(this, AppConstants.CARTCOUNT)
     }
 
-    override fun run() {
-
-        try {
-            val nextPos: Int
-
-            if (isAscending) {
-                nextPos = (vp_banner.getCurrentItem() + 1) % mAdapter!!.getCount()
-                isAscending = nextPos < mAdapter!!.getCount() - 1
-            } else {
-                nextPos = (vp_banner.getCurrentItem() - 1) % mAdapter!!.getCount()
-                isAscending = nextPos < 1
-            }
-
-            vp_banner.setCurrentItem(nextPos, true)
-            mBannerHandler!!.postDelayed(this, 3000)
-        } catch (e: ArithmeticException) {
-        }
-
-    }
 
     override fun onPageScrollStateChanged(state: Int) {
         if (previousState == ViewPager.SCROLL_STATE_DRAGGING && state == ViewPager.SCROLL_STATE_SETTLING) {

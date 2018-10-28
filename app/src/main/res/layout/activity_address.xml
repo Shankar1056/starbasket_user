@@ -6,7 +6,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	tools:context="com.bigappcompany.quikmart.activity.CartActivity"
+	tools:context=".activity.AddressActivity"
 	tools:ignore="MissingPrefix">
 
 	<include layout="@layout/toolbar"/>
@@ -51,7 +51,6 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentBottom="true"
 			android:background="@color/colorPrimary"
-			android:drawableEnd="@drawable/ic_keyboard_arrow_right_white_24dp"
 			android:gravity="center"
 			android:padding="@dimen/standard"
 			android:text="@string/proceed_to_pay"

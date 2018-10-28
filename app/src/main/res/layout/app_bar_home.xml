@@ -26,6 +26,17 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent">
 				<LinearLayout
+					android:id="@+id/uploadmedicine"
+					android:layout_width="50dp"
+					android:layout_height="match_parent"
+					android:gravity="center"
+					android:layout_toLeftOf="@+id/uploadPres">
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/drug"/>
+				</LinearLayout>
+				<LinearLayout
 					android:id="@+id/uploadPres"
 					android:layout_width="50dp"
 					android:layout_height="match_parent"

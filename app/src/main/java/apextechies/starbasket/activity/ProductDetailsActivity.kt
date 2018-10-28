@@ -1,6 +1,7 @@
 package apextechies.starbasket.activity
 
 import android.app.Dialog
+import android.content.Intent
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.preference.Preference
@@ -89,19 +90,33 @@ class ProductDetailsActivity: BaseActivity(), CombinationAdapter.OnItemClickList
         cartRV.adapter = mCartAdapter
         cartRV.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
-
         init()
 
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@ProductDetailsActivity, SearchActivity::class.java))
+        }
 
-       /* ApiTask.builder(this)
-                .setGET()
-                .setUrl(ApiUrl.GET_PRODUCT_DETAILS + product.getProductId())
-                .setProgressMessage(R.string.loading_product_details)
-                .setRequestCode(RC_DETAILS)
-                .setResponseListener(this)
-                .exec()*/
+        getProductGradient()
 
+    }
 
+    private fun getProductGradient() {
+        retrofitDataProvider!!.getProductGradient(product[pos].id, object : DownlodableCallback<ProductGradientModel> {
+            override fun onSuccess(result: ProductGradientModel?) {
+
+                if (result!!.status.equals("true")){
+                        mAdapter!!.addItem(TextFragment.newInstance(result.data!![0].about_product), "About")
+                        mAdapter!!.addItem(TextFragment.newInstance(result.data!![0].product_ingradient), "Ingredients")
+                        mAdapter!!.addItem(TextFragment.newInstance(result.data!![0].product_nuetrition), "Nutritional Facts")
+                }
+            }
+
+            override fun onFailure(error: String?) { }
+
+            override fun onUnauthorized(errorNumber: Int) {   }
+
+        })
     }
 
     override fun onStart() {

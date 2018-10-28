@@ -32,6 +32,9 @@
 				android:paddingLeft="10dp"
 				android:paddingRight="10dp"
 				android:textSize="13sp"
+				android:cursorVisible="true"
+				android:textCursorDrawable="@null"
+				android:textColor="@color/white"
 				android:fontFamily="@font/celias_medium"
 				android:singleLine="true"
 				android:imeOptions="actionSearch"/>

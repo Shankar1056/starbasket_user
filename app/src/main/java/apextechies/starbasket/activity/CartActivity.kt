@@ -58,6 +58,12 @@ class CartActivity : AppCompatActivity(), OnCartListener {
             finish()
         }
 
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@CartActivity, SearchActivity::class.java))
+        }
+
+
     }
 
     private fun getCartItem() {
@@ -131,7 +137,7 @@ class CartActivity : AppCompatActivity(), OnCartListener {
 
         if (title != null) builder.setTitle(title)
 
-        builder.setMessage("Are you sure you want to delete this item from your cart?")
+        builder.setMessage("Are you sure you want to cancel your cart?")
         builder.setPositiveButton("OK", object : DialogInterface.OnClickListener {
             override fun onClick(dialog: DialogInterface?, which: Int) {
                 updateart(item)

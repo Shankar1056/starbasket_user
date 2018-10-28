@@ -9,6 +9,7 @@ import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.PrescriptionModel;
+import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -109,5 +110,13 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.SEARCHESPRODUCT)
     @FormUrlEncoded
     Call<ProductModel> getSearchedProduct(@Field("prod_name") String sub_cat_id);
+
+    @POST(ApiUrl.PRODUCTGRADIENT)
+    @FormUrlEncoded
+    Call<ProductGradientModel> getProductGradient(@Field("prod_id") String prod_id);
+
+    @POST(ApiUrl.CHANGEPASSWORD)
+    @FormUrlEncoded
+    Call<CommonModel> changePassword(@Field("email") String email, @Field("mobile") String mobile, @Field("password") String password, @Field("newpassword") String newpassword);
 
 }

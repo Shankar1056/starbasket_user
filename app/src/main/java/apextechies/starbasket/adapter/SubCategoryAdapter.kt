@@ -78,7 +78,6 @@ import java.util.ArrayList
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = mItemList[position]
 
-            if (item.status.equals("1")) {
                 holder.titleTV.text = item.name
                 if (!TextUtils.isEmpty(item.icon))
                     Picasso.with(holder.itemView.context)
@@ -86,7 +85,6 @@ import java.util.ArrayList
                             .fit()
                             .centerInside()
                             .into(holder.imageIV)
-            }
         }
 
         override fun getItemCount(): Int {

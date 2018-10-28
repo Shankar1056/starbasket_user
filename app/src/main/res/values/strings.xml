@@ -147,4 +147,5 @@
     <string name="edit">Edit</string>
     <string name="sendlist">Send List</string>
     <string name="sendphoto">Send Photo</string>
+    <string name="hint_oldpasword">Enter old password</string>
 </resources>

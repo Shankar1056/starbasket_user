@@ -60,6 +60,15 @@ class CheckoutActivity: AppCompatActivity(), PaymentResultWithDataListener {
         tv_proceed_to_pay.setOnClickListener {
             doPayment()
         }
+
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@CheckoutActivity, SearchActivity::class.java))
+        }
+
+        toolbarr.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun doPayment() {

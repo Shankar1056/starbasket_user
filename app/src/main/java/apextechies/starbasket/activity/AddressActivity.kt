@@ -34,7 +34,7 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
         rv_address.adapter = mAdapter
 
         if (intent.getStringExtra("from").equals("main")){
-            tv_proceed_to_pay.text = "Submit"
+            tv_proceed_to_pay.text = "Save"
         }
 
         fab_add.setOnClickListener {

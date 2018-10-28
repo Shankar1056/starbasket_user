@@ -22,10 +22,8 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResultCallback
 import com.google.android.gms.common.api.Status
 import kotlinx.android.synthetic.main.activity_signup.*
-import kotlinx.android.synthetic.main.toolbar.*
-import java.lang.IllegalStateException
 
-class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedListener{
+class SignUpActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
     private val RC_SIGN_IN = 7
 
     private var mGoogleApiClient: GoogleApiClient? = null
@@ -33,15 +31,15 @@ class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedLi
 
     }
 
-    var retrofitDataProvider: RetrofitDataProvider?= null
+    var retrofitDataProvider: RetrofitDataProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        setSupportActionBar(toolbarr)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "SignUp"
+        /*  setSupportActionBar(toolbarr)
+          supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+          supportActionBar!!.title = "SignUp"*/
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -58,28 +56,36 @@ class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedLi
             val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
+
+        imageView2.setOnClickListener {
+            ClsGeneral.setBoolean(this, "islogout", false)
+            val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
+
+
         btn_submit.setOnClickListener {
-            if (Utilz.isInternetConnected(this)){
-            if (input_name.text.toString().trim().equals("")) Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show()
-            else if (input_lastname.text.toString().trim().equals("")) Toast.makeText(this, "Enter your last name", Toast.LENGTH_SHORT).show()
-            else if (input_email.text.toString().trim().equals("")) Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show()
-            else if (input_mobile.text.toString().trim().equals("")) Toast.makeText(this, "Enter your mobile id", Toast.LENGTH_SHORT).show()
-            else if (input_password.text.toString().trim().equals("")) Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show()
-            else if (input_confirmpassword.text.toString().trim().equals("")) Toast.makeText(this, "Enter Confirm password", Toast.LENGTH_SHORT).show()
-            else if (!input_confirmpassword.text.toString().trim().equals(input_password.text.toString().trim())) Toast.makeText(this, "Password & Confirm password are different", Toast.LENGTH_SHORT).show()
-            else{
+            if (Utilz.isInternetConnected(this)) {
+                if (input_name.text.toString().trim().equals("")) Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show()
+                // else if (input_lastname.text.toString().trim().equals("")) Toast.makeText(this, "Enter your last name", Toast.LENGTH_SHORT).show()
+                else if (input_email.text.toString().trim().equals("")) Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show()
+                else if (input_mobile.text.toString().trim().equals("")) Toast.makeText(this, "Enter your mobile id", Toast.LENGTH_SHORT).show()
+                else if (input_password.text.toString().trim().equals("")) Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show()
+                else if (input_confirmpassword.text.toString().trim().equals("")) Toast.makeText(this, "Enter Confirm password", Toast.LENGTH_SHORT).show()
+                else if (!input_confirmpassword.text.toString().trim().equals(input_password.text.toString().trim())) Toast.makeText(this, "Password & Confirm password are different", Toast.LENGTH_SHORT).show()
+                else {
 
-               callLoginApi(input_name.text.toString(), input_lastname.text.toString(), input_email.text.toString(), input_password.text.toString(), input_mobile.text.toString())
+                    callLoginApi(input_name.text.toString(), "", input_email.text.toString(), input_password.text.toString(), input_mobile.text.toString())
 
-            }
+                }
             } else {
                 Toast.makeText(this, "No Internet connection", Toast.LENGTH_SHORT).show()
             }
         }
 
-        toolbarr.setNavigationOnClickListener {
-            finish()
-        }
+        /* toolbarr.setNavigationOnClickListener {
+             finish()
+         }*/
 
 
         gplus_sign_in.setSize(SignInButton.SIZE_STANDARD)
@@ -101,15 +107,14 @@ class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedLi
     private fun handleSignInResult(result: GoogleSignInResult) {
         if (result.isSuccess) {
             // Signed in successfully, show authenticated UI.
-            if (ClsGeneral.getBoolPreferences(this, "islogout")){
+            if (ClsGeneral.getBoolPreferences(this, "islogout")) {
                 try {
                     logoutGPlus()
-                }catch (e: IllegalStateException){
+                } catch (e: IllegalStateException) {
                     startActivity(Intent(this, LoginActivity::class.java))
                 }
 
-            }
-            else {
+            } else {
                 val acct = result.signInAccount
                 val personName = acct!!.displayName
                 val personPhotoUrl = acct.photoUrl!!.toString()
@@ -143,9 +148,10 @@ class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedLi
     }
 
     private fun callLoginApi(name: String, lastname: String, emil: String, password: String, mobile: String) {
+        Utilz.showDailog(this, resources.getString(R.string.pleaewait))
         retrofitDataProvider!!.userSignup(name, lastname, emil, password, mobile, "address", "device_token", object : DownlodableCallback<LoginModel> {
             override fun onSuccess(result: LoginModel?) {
-
+                Utilz.dismissProgressDialog()
                 if (result!!.status.equals("true")) {
                     if (result.data!![0].status.equals("1")) {
                         ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USERID, result.data!![0].id)
@@ -161,9 +167,13 @@ class SignUpActivity: AppCompatActivity() , GoogleApiClient.OnConnectionFailedLi
                 }
             }
 
-            override fun onFailure(error: String?) {}
+            override fun onFailure(error: String?) {
+                Utilz.dismissProgressDialog()
+            }
 
-            override fun onUnauthorized(errorNumber: Int) {}
+            override fun onUnauthorized(errorNumber: Int) {
+                Utilz.dismissProgressDialog()
+            }
         })
     }
 

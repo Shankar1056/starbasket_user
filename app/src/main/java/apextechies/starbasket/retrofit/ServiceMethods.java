@@ -9,6 +9,7 @@ import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
 import apextechies.starbasket.model.PrescriptionModel;
+import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
 import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
@@ -41,5 +42,7 @@ public interface ServiceMethods {
     void getPrescription(String user_id, DownlodableCallback<PrescriptionModel> callback);
     void cancelOrder(String transaction_id, DownlodableCallback<CommonModel> callback);
     void getSearchedProduct(String prod_name, DownlodableCallback<ProductModel> callback);
+    void getProductGradient(String prod_id, DownlodableCallback<ProductGradientModel> callback);
+    void changePassord(String email, String mobile, String password, String newpassword, DownlodableCallback<CommonModel> callback);
 
 }

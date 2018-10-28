@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 
 
 import apextechies.starbasket.R
@@ -54,6 +55,8 @@ class OrderDetailsActivity : AppCompatActivity() {
         }
 
         date.text = mOrder.order_date
+
+
     }
     private fun showDilog(item: String) {
         val builder = AlertDialog.Builder(this)

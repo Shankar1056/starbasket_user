@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.AllCategoryAdapter
 import apextechies.starbasket.model.*
@@ -51,6 +52,11 @@ class CategoryActivity: AppCompatActivity(), AllCategoryAdapter.OnItemClickListe
 
         toolbarr.setNavigationOnClickListener {
             finish()
+        }
+
+        search.visibility = View.VISIBLE
+        search.setOnClickListener {
+            startActivity(Intent(this@CategoryActivity, SearchActivity::class.java))
         }
 
     }
