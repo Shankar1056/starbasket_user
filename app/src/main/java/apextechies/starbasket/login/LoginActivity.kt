@@ -73,6 +73,10 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         // Customizing G+ button
         gplus_sign_in.setSize(SignInButton.SIZE_STANDARD)
         gplus_sign_in.setScopes(gso!!.scopeArray)
+        imageView3.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+        }
 
     }
 

@@ -148,4 +148,6 @@
     <string name="sendlist">Send List</string>
     <string name="sendphoto">Send Photo</string>
     <string name="hint_oldpasword">Enter old password</string>
+    <string name="privacypolicy">Privacy Policy</string>
+    <string name="my_wishlist">Wishlist</string>
 </resources>

@@ -17,8 +17,11 @@ import apextechies.starbasket.adapter.CategoryAdapter
 import apextechies.starbasket.adapter.SubCategoryAdapter
 import apextechies.starbasket.adapter.ViewPagerAdapter
 import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.common.Utilz
 import apextechies.starbasket.fragment.ImageFragment
+import apextechies.starbasket.listener.OnClickListenr
 import apextechies.starbasket.login.ChangePassword
+import apextechies.starbasket.login.LoginActivity
 import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
@@ -66,15 +69,25 @@ class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, S
         slideViewPager()
 
         nav_my_cart.setOnClickListener {
-            changebackcolor(nav_my_cart)
-            drawer_layout.closeDrawer(Gravity.LEFT)
-            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                changebackcolor(nav_my_cart)
+                drawer_layout.closeDrawer(Gravity.LEFT)
+                startActivity(Intent(this@MainActivity, CartActivity::class.java))
+            }
         }
         nav_my_addresses.setOnClickListener {
-            changebackcolor(nav_my_addresses)
-            drawer_layout.closeDrawer(Gravity.LEFT)
-            startActivity(Intent(this@MainActivity, AddressActivity::class.java)
-                    .putExtra("from", "main"))
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                changebackcolor(nav_my_addresses)
+                drawer_layout.closeDrawer(Gravity.LEFT)
+                startActivity(Intent(this@MainActivity, AddressActivity::class.java)
+                        .putExtra("from", "main"))
+            }
         }
         nav_share.setOnClickListener {
             drawer_layout.closeDrawer(Gravity.LEFT)
@@ -84,15 +97,25 @@ class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, S
             startActivity(Intent.createChooser(sharingIntent, "Share using"))
         }
         nav_logout.setOnClickListener {
-            ClsGeneral.setBoolean(this, "islogout", true)
-            ClsGeneral.setPreferences(this, AppConstants.USERID, "")
-            startActivity(Intent(this@MainActivity, SplashScreen::class.java))
-            finishAffinity()
+            Utilz.displayMessageAlertWithCllbak("Ary yo sure you want to logged out from this app", this, object : OnClickListenr {
+                override fun onClick(posInt: Int) {
+                    ClsGeneral.setBoolean(this@MainActivity, "islogout", true)
+                    ClsGeneral.setPreferences(this@MainActivity, AppConstants.USERID, "")
+                    startActivity(Intent(this@MainActivity, SplashScreen::class.java))
+                    finishAffinity()
+                }
+            })
+
         }
         nav_my_orders.setOnClickListener {
-            changebackcolor(nav_my_orders)
-            drawer_layout.closeDrawer(Gravity.LEFT)
-            startActivity(Intent(this@MainActivity, OrderActivity::class.java))
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                changebackcolor(nav_my_orders)
+                drawer_layout.closeDrawer(Gravity.LEFT)
+                startActivity(Intent(this@MainActivity, OrderActivity::class.java))
+            }
         }
 
         cartLL.setOnClickListener {
@@ -100,10 +123,20 @@ class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, S
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
         action_cart.setOnClickListener {
-            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                startActivity(Intent(this@MainActivity, CartActivity::class.java))
+            }
         }
         uploadPres.setOnClickListener {
-            startActivity(Intent(this@MainActivity, WriteUploadPrecription::class.java))
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                startActivity(Intent(this@MainActivity, WriteUploadPrecription::class.java))
+            }
         }
         changePassword.setOnClickListener {
             startActivity(Intent(this@MainActivity, ChangePassword::class.java))
@@ -115,6 +148,15 @@ class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, S
         et_search.setOnClickListener {
             startActivity(Intent(this, SearchActivity::class.java))
         }
+    }
+
+    private fun gotoogin() {
+        Utilz.displayMessageAlertWithCllbak("Please sign in first to see your orders", this@MainActivity, object : OnClickListenr {
+            override fun onClick(posInt: Int) {
+                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                finishAffinity()
+            }
+        })
     }
 
     private fun slideViewPager() {

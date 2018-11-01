@@ -68,7 +68,7 @@ class SignUpActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
             if (Utilz.isInternetConnected(this)) {
                 if (input_name.text.toString().trim().equals("")) Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show()
                 // else if (input_lastname.text.toString().trim().equals("")) Toast.makeText(this, "Enter your last name", Toast.LENGTH_SHORT).show()
-                else if (input_email.text.toString().trim().equals("")) Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show()
+             //   else if (input_email.text.toString().trim().equals("")) Toast.makeText(this, "Enter your email id", Toast.LENGTH_SHORT).show()
                 else if (input_mobile.text.toString().trim().equals("")) Toast.makeText(this, "Enter your mobile id", Toast.LENGTH_SHORT).show()
                 else if (input_password.text.toString().trim().equals("")) Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show()
                 else if (input_confirmpassword.text.toString().trim().equals("")) Toast.makeText(this, "Enter Confirm password", Toast.LENGTH_SHORT).show()
@@ -90,6 +90,16 @@ class SignUpActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
 
         gplus_sign_in.setSize(SignInButton.SIZE_STANDARD)
         gplus_sign_in.setScopes(gso.scopeArray)
+
+        btnLogin.setOnClickListener {
+            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
+            finish()
+        }
+
+        imageView3.setOnClickListener {
+            startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
+            finish()
+        }
 
     }
 
@@ -191,7 +201,7 @@ class SignUpActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLi
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device
             // single sign-on will occur in this branch.
-            Utilz.showDailog(this, resources.getString(R.string.pleaewait))
+           // Utilz.showDailog(this, resources.getString(R.string.pleaewait))
             opr.setResultCallback(object : ResultCallback<GoogleSignInResult> {
                 override fun onResult(googleSignInResult: GoogleSignInResult) {
                     Utilz.dismissProgressDialog()

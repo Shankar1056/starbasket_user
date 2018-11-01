@@ -34,6 +34,7 @@ import java.util.Date;
 import java.util.List;
 
 import apextechies.starbasket.R;
+import apextechies.starbasket.listener.OnClickListenr;
 
 
 public class Utilz {
@@ -323,11 +324,35 @@ public class Utilz {
         }
     }
 
-    public static void displayMessageAlert(String Message, Context context) {
+    public static void displayMessageAlert(String Message, final Context context) {
         try {
             new AlertDialog.Builder(context).setMessage(Message).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface arg0, int arg1) {
 
+
+                }
+            }).setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            }).create().show();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+    public static void displayMessageAlertWithCllbak(String Message, final Context context, final OnClickListenr onClickListenr ) {
+        try {
+            new AlertDialog.Builder(context).setMessage(Message).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                    onClickListenr.onClick(0);
+
+                }
+            }).setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
                 }
             }).create().show();
         } catch (Exception e) {

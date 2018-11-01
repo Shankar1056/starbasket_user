@@ -18,6 +18,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PinCodeModel;
 import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
@@ -762,6 +763,37 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<CommonModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void getPincode(final DownlodableCallback<PinCodeModel> callback) {
+        createRetrofitService().getPincode().enqueue(
+                new Callback<PinCodeModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<PinCodeModel> call, @NonNull final Response<PinCodeModel> response) {
+
+                        if (response.isSuccessful()) {
+                            PinCodeModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<PinCodeModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

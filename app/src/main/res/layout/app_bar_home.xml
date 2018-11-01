@@ -32,8 +32,8 @@
 					android:gravity="center"
 					android:layout_toLeftOf="@+id/uploadPres">
 					<ImageView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
+						android:layout_width="32dp"
+						android:layout_height="32dp"
 						android:background="@drawable/drug"/>
 				</LinearLayout>
 				<LinearLayout
@@ -43,8 +43,8 @@
 					android:gravity="center"
 					android:layout_toLeftOf="@+id/cartLL">
 					<ImageView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
+						android:layout_width="32dp"
+						android:layout_height="32dp"
 						android:background="@drawable/upload_prescription"/>
 				</LinearLayout>
 				<LinearLayout

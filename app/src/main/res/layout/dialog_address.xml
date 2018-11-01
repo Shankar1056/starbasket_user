@@ -116,7 +116,7 @@
 				android:layout_height="wrap_content"/>
 		</LinearLayout>
 
-		<android.support.design.widget.TextInputLayout
+		<!--<android.support.design.widget.TextInputLayout
 			android:id="@+id/til_pincode"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -132,7 +132,18 @@
 				android:inputType="number"
 				android:textColor="@color/black"
 				android:textSize="@dimen/text_normal"/>
-		</android.support.design.widget.TextInputLayout>
+		</android.support.design.widget.TextInputLayout>-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/thick"
+			android:background="@drawable/draw_border_grey">
+
+			<android.support.v7.widget.AppCompatSpinner
+				android:id="@+id/acs_pncode"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+		</LinearLayout>
 	</LinearLayout>
 
 	<TextView

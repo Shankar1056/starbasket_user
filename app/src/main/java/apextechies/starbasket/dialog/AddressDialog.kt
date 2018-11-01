@@ -12,9 +12,7 @@ import android.view.WindowManager
 import android.widget.ArrayAdapter
 import java.util.ArrayList
 import apextechies.starbasket.R
-import apextechies.starbasket.model.AddressDataModel
-import apextechies.starbasket.model.StateDataModel
-import apextechies.starbasket.model.StateModel
+import apextechies.starbasket.model.*
 import apextechies.starbasket.retrofit.DownlodableCallback
 import apextechies.starbasket.retrofit.RetrofitDataProvider
 import kotlinx.android.synthetic.main.dialog_address.*
@@ -26,6 +24,7 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
     var retrofitDataProvider: RetrofitDataProvider?= null
 
     private val stateList = ArrayList<StateDataModel>()
+    private val pincodeList = ArrayList<PinCodeDataModel>()
 
     private val address: AddressDataModel?
         get() {
@@ -73,12 +72,7 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
                 til_city.setError(null)
             }
 
-            if (!et_pincode.getText().toString().trim().matches("\\d{6}".toRegex())) {
-                til_pincode.setError(getString(R.string.invalid_pincode))
-                isValid = false
-            } else {
-                til_pincode.setError(null)
-            }
+
 
             if (isValid) {
                 val address = arguments!!.getParcelable(ARG_ADDRESS) as AddressDataModel
@@ -88,7 +82,7 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
                 address.landmark = et_landmark.text.toString().trim()
                 address.city = et_city.text.toString().trim()
                 address.state_name = (stateList[acs_state.getSelectedItemPosition()].name)
-                address.pincode = et_pincode.getText().toString().trim()
+                address.pincode = (pincodeList[acs_pncode.getSelectedItemPosition()].pincode)
 
                 return address
             }
@@ -115,7 +109,7 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
         view.et_address2.setText(addrss.address2)
         view.et_landmark.setText(addrss.landmark)
         view.et_city.setText(addrss.city)
-        view.et_pincode.setText(addrss.pincode)
+//        view.et_pincode.setText(addrss.pincode)
         //view.stateList[position].name
 
 
@@ -129,6 +123,25 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
             }
             acs_state.adapter = ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, stateLst);
             acs_state.setSelection(0);
+        }
+    }
+
+    override fun onFailure(error: String?) {
+    }
+
+    override fun onUnauthorized(errorNumber: Int) {
+    }
+})
+        retrofitDataProvider!!.getPincode(object : DownlodableCallback<PinCodeModel> {
+    override fun onSuccess(result: PinCodeModel?) {
+       val pincodeLst =  ArrayList<String>();
+        if (result != null) {
+            for (i in 0 until result.data!!.size) {
+                pincodeList.add(result.data!![i])
+                pincodeLst.add(result.data!![i].pincode!!);
+            }
+            acs_pncode.adapter = ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, pincodeLst);
+            acs_pncode.setSelection(0)
         }
     }
 
@@ -152,7 +165,6 @@ class AddressDialog(private val addrss: AddressDataModel, private val position: 
                 et_address2.setText(address.address2)
                 et_landmark.setText(address.landmark)
                 et_city.setText(address.city)
-                et_pincode.setText(address.pincode)
             }
             catch (e: Exception){
 

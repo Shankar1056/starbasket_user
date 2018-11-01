@@ -8,6 +8,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PinCodeModel;
 import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
@@ -44,5 +45,6 @@ public interface ServiceMethods {
     void getSearchedProduct(String prod_name, DownlodableCallback<ProductModel> callback);
     void getProductGradient(String prod_id, DownlodableCallback<ProductGradientModel> callback);
     void changePassord(String email, String mobile, String password, String newpassword, DownlodableCallback<CommonModel> callback);
+    void getPincode(DownlodableCallback<PinCodeModel> callback);
 
 }

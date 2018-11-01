@@ -44,7 +44,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 	public void onBindViewHolder(ViewHolder holder, int position) {
 		AddressDataModel item = mItemList.get(position);
 		holder.chosenRB.setChecked(mSelectedPosition == position);
-		holder.addressTV.setText(item.getAddress1());
+		holder.addressTV.setText(item.getAddress1()+", "+item.getAddress2()+", "+item.getCity()+", "+item.getPincode());
 		holder.tv_username.setText(item.getName());
 		String a = ClsGeneral.getStrPreferences(context, AppConstants.INSTANCE.getMOBILE());
 		holder.tv_mobile.setText(ClsGeneral.getStrPreferences(context, AppConstants.INSTANCE.getMOBILE()));

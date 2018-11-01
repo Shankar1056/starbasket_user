@@ -29,4 +29,6 @@ public class ApiUrl {
     public static final String SEARCHESPRODUCT = "get_searched_product_list";
     public static final String PRODUCTGRADIENT = "product_gradient";
     public static final String CHANGEPASSWORD = "change_password";
+    public static final String GTPINCODE = "get_pincode";
+    public static final String ADDDELETEWISHIST = "add_delete_wishlist";
 }

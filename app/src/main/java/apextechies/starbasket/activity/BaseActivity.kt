@@ -21,6 +21,9 @@ import android.widget.Toast
 import org.json.JSONObject
 
 import apextechies.starbasket.R
+import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.login.LoginActivity
+import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.toolbar.*
 
 /**
@@ -120,7 +123,15 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.action_cart -> startActivity(Intent(this, CartActivity::class.java))
+
+            R.id.action_cart -> {
+                if (ClsGeneral.getStrPreferences(this@BaseActivity, AppConstants.USERID).equals("")) {
+                    startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
+                    finishAffinity()
+                } else {
+                    startActivity(Intent(this, CartActivity::class.java))
+                }
+            }
 
             R.id.btn_home -> {
                 startActivity(Intent(this, MainActivity::class.java))

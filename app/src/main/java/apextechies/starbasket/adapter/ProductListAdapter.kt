@@ -148,8 +148,8 @@ class ProductListAdapter(private val mListener: OnItemClickListener) : RecyclerV
 
 
                 R.id.tv_dec_quantity -> {
-                    if (quantityTV.text.toString().trim().equals("") || quantityTV.text.toString().trim().equals("0")){
 
+                    if (quantityTV.text.toString().trim().equals("") || quantityTV.text.toString().trim().equals("0")){
                     }else{
                         mCartList[adapterPosition].quantity = (Integer.parseInt(mCartList[adapterPosition].quantity) - 1).toString()
                         notifyItemChanged(adapterPosition)

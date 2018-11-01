@@ -8,7 +8,9 @@ import android.view.View
 import apextechies.starbasket.R
 import apextechies.starbasket.adapter.AddressAdapter
 import apextechies.starbasket.common.ClsGeneral
+import apextechies.starbasket.common.Utilz
 import apextechies.starbasket.dialog.AddressDialog
+import apextechies.starbasket.listener.OnClickListenr
 import apextechies.starbasket.model.AddressDataModel
 import apextechies.starbasket.model.AddressModel
 import apextechies.starbasket.retrofit.DownlodableCallback
@@ -16,6 +18,7 @@ import apextechies.starbasket.retrofit.RetrofitDataProvider
 import apextechies.starbasketseller.common.AppConstants
 import kotlinx.android.synthetic.main.activity_address.*
 import kotlinx.android.synthetic.main.toolbar.*
+import okhttp3.internal.Util
 
 class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, AddressAdapter.OnItemClickListener {
     private var mAdapter: AddressAdapter? = null
@@ -73,22 +76,27 @@ class AddressActivity:AppCompatActivity(), AddressDialog.OnAddressListener, Addr
 
 
     override fun onDelete(item: AddressDataModel?, position: Int) {
-        mAdapter!!.deleteItem(position)
-        retrofitDataProvider!!.deleteAddress(item!!.address_id, object : DownlodableCallback<AddressModel> {
-            override fun onSuccess(result: AddressModel?) {
+        Utilz.displayMessageAlertWithCllbak("you want to delete this item from your car?", this, object : OnClickListenr {
+            override fun onClick(posInt: Int) {
+                mAdapter!!.deleteItem(position)
+                retrofitDataProvider!!.deleteAddress(item!!.address_id, object : DownlodableCallback<AddressModel> {
+                    override fun onSuccess(result: AddressModel?) {
 
-                if (mAdapter!!.getItemCount() === 0) {
-                    tv_empty.setVisibility(View.VISIBLE)
-                }
+                        if (mAdapter!!.getItemCount() === 0) {
+                            tv_empty.setVisibility(View.VISIBLE)
+                        }
+                    }
+
+                    override fun onFailure(error: String?) {
+                    }
+
+                    override fun onUnauthorized(errorNumber: Int) {
+                    }
+
+                })
             }
-
-            override fun onFailure(error: String?) {
-            }
-
-            override fun onUnauthorized(errorNumber: Int) {
-            }
-
         })
+
     }
 
     override fun onUpdate(item: AddressDataModel?, position: Int) {

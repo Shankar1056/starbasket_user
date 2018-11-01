@@ -8,6 +8,7 @@ import apextechies.starbasket.model.CheckoutModel;
 import apextechies.starbasket.model.CommonModel;
 import apextechies.starbasket.model.HomeBannerModel;
 import apextechies.starbasket.model.LoginModel;
+import apextechies.starbasket.model.PinCodeModel;
 import apextechies.starbasket.model.PrescriptionModel;
 import apextechies.starbasket.model.ProductGradientModel;
 import apextechies.starbasket.model.ProductModel;
@@ -15,6 +16,7 @@ import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
 import apextechies.starbasket.model.UserOrderListModel;
+import apextechies.starbasket.model.WishListMode;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -118,5 +120,11 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.CHANGEPASSWORD)
     @FormUrlEncoded
     Call<CommonModel> changePassword(@Field("email") String email, @Field("mobile") String mobile, @Field("password") String password, @Field("newpassword") String newpassword);
+
+    @GET(ApiUrl.GTPINCODE)
+    Call<PinCodeModel> getPincode();
+
+    @GET(ApiUrl.ADDDELETEWISHIST)
+    Call<WishListMode> addpdateWishList();
 
 }
