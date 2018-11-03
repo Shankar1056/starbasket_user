@@ -26,6 +26,7 @@ import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
 import apextechies.starbasket.model.UserOrderListModel;
+import apextechies.starbasket.model.WishListMode;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -794,6 +795,68 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<PinCodeModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void addpdateWishList(String user_id, String prod_id, String operation, final DownlodableCallback<WishListMode> callback) {
+        createRetrofitService().addpdateWishList(user_id, prod_id, operation).enqueue(
+                new Callback<WishListMode>() {
+                    @Override
+                    public void onResponse(@NonNull Call<WishListMode> call, @NonNull final Response<WishListMode> response) {
+
+                        if (response.isSuccessful()) {
+                            WishListMode mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                                //Utilz.closeDialog();
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<WishListMode> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void getWishList(String user_id, final DownlodableCallback<WishListMode> callback) {
+        createRetrofitService().getWishList(user_id).enqueue(
+                new Callback<WishListMode>() {
+                    @Override
+                    public void onResponse(@NonNull Call<WishListMode> call, @NonNull final Response<WishListMode> response) {
+
+                        if (response.isSuccessful()) {
+                            WishListMode mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+
+                                Toast.makeText(context, context.getResources().getString(R.string.something_went_wrong_error_message), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<WishListMode> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
 

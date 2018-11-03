@@ -16,6 +16,7 @@ import apextechies.starbasket.model.StateModel;
 import apextechies.starbasket.model.SubCategoryModel;
 import apextechies.starbasket.model.SubSubCategory;
 import apextechies.starbasket.model.UserOrderListModel;
+import apextechies.starbasket.model.WishListMode;
 
 /**
  * Created by Shankar on 1/27/2018.
@@ -46,5 +47,7 @@ public interface ServiceMethods {
     void getProductGradient(String prod_id, DownlodableCallback<ProductGradientModel> callback);
     void changePassord(String email, String mobile, String password, String newpassword, DownlodableCallback<CommonModel> callback);
     void getPincode(DownlodableCallback<PinCodeModel> callback);
+    void addpdateWishList(String user_id, String prod_id, String operation, DownlodableCallback<WishListMode> callback);
+    void getWishList(String user_id, DownlodableCallback<WishListMode> callback);
 
 }

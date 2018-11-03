@@ -57,7 +57,7 @@ public interface ApiRetrofitService {
 
     @POST(ApiUrl.ADDUPDATECART)
     @FormUrlEncoded
-    Call<CartModel> addUpdateCart(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("quantity") String quantity, @Field("name") String name, @Field("price") String price, @Field("image") String image, @Field("unit") String unit , @Field("seller_id") String seller_id );
+    Call<CartModel> addUpdateCart(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("quantity") String quantity, @Field("name") String name, @Field("price") String price, @Field("image") String image, @Field("unit") String unit, @Field("seller_id") String seller_id);
 
     @POST(ApiUrl.DELETECARTITEM)
     @FormUrlEncoded
@@ -87,7 +87,7 @@ public interface ApiRetrofitService {
     Call<LoginModel> userSignup(@Field("name") String name, @Field("lastname") String lastname, @Field("email") String email, @Field("password") String password, @Field("mobile") String mobile, @Field("address") String address, @Field("device_token") String device_token);
 
     @POST(ApiUrl.CHECKOUT)
-    Call<CommonModel> doPayment(@Body CheckoutModel checkoutModel );
+    Call<CommonModel> doPayment(@Body CheckoutModel checkoutModel);
 
     @POST(ApiUrl.USERORDERLIST)
     @FormUrlEncoded
@@ -124,7 +124,12 @@ public interface ApiRetrofitService {
     @GET(ApiUrl.GTPINCODE)
     Call<PinCodeModel> getPincode();
 
-    @GET(ApiUrl.ADDDELETEWISHIST)
-    Call<WishListMode> addpdateWishList();
+    @POST(ApiUrl.ADDDELETEWISHIST)
+    @FormUrlEncoded
+    Call<WishListMode> addpdateWishList(@Field("user_id") String user_id, @Field("prod_id") String prod_id, @Field("operation") String operation);
+
+    @POST(ApiUrl.GETWISHLIST)
+    @FormUrlEncoded
+    Call<WishListMode> getWishList(@Field("user_id") String user_id);
 
 }

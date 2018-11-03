@@ -31,4 +31,5 @@ public class ApiUrl {
     public static final String CHANGEPASSWORD = "change_password";
     public static final String GTPINCODE = "get_pincode";
     public static final String ADDDELETEWISHIST = "add_delete_wishlist";
+    public static final String GETWISHLIST = "get_wishlist_data";
 }

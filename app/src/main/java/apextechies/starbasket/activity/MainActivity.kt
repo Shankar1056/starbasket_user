@@ -89,6 +89,16 @@ class MainActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListener, S
                         .putExtra("from", "main"))
             }
         }
+        nav_my_wishlist.setOnClickListener {
+            if (ClsGeneral.getStrPreferences(this@MainActivity, AppConstants.USERID).equals("")) {
+                gotoogin()
+            }
+            else {
+                changebackcolor(nav_my_wishlist)
+                drawer_layout.closeDrawer(Gravity.LEFT)
+                startActivity(Intent(this@MainActivity, WishListActivity::class.java))
+            }
+        }
         nav_share.setOnClickListener {
             drawer_layout.closeDrawer(Gravity.LEFT)
             val sharingIntent = Intent(Intent.ACTION_SEND)

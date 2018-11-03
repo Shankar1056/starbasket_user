@@ -17,6 +17,8 @@ class ProductModel {
 
 @Parcelize
 class ProductDataModel(
+        @SerializedName("iswishlist")
+        var iswishlist: Boolean = false,
         @SerializedName("id")
         val id: String? = null,
         @SerializedName("sub_cat_id")

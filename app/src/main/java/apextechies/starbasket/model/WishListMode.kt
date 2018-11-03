@@ -14,6 +14,7 @@ class WishListMode(
     val data: ArrayList<WishListDataMode>?= null
 )
 
+@Parcelize
 class WishListDataMode (
         @SerializedName("id")
         var id: String?= null,
@@ -22,10 +23,12 @@ class WishListDataMode (
         @SerializedName("user_id")
         var user_id: String?= null,
         @SerializedName("prodDetails")
-        val data: ArrayList<wishProductDataModel>?= null
-)
+        val data: ArrayList<WishProductDataModel>?= null
+) : Parcelable
+
+
 @Parcelize
-class wishProductDataModel(
+class WishProductDataModel(
         @SerializedName("id")
         val id: String? = null,
         @SerializedName("sub_cat_id")
